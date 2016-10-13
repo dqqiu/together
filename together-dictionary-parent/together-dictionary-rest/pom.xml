@@ -2,13 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.spirit</groupId>
-    <artifactId>together</artifactId>
+    <artifactId>together-dictionary-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>together-security-parent</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>together-security-api</module>
-  	<module>together-security-rest</module>
-  </modules>
+  <artifactId>together-dictionary-rest</artifactId>
 </project>
