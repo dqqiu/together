@@ -19,7 +19,7 @@ public class StringUtils extends org.springframework.util.StringUtils {
    *  @Creation Date  : 2016年10月13日 下午5:59:22 
    *  @Author         : qiudequan
    */
-  public String append(String... sources) {
+  public static String append(String... sources) {
     if(sources == null || sources.length == 0){
       return "";
     }
