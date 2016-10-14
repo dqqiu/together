@@ -13,6 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring.boot.version>1.4.1.RELEASE</spring.boot.version>
+		<spring.version>4.2.5.RELEASE</spring.version>
 		<slf4j.api.versioin>1.7.21</slf4j.api.versioin>
 		<swagger2.version>2.5.0</swagger2.version>
 		<commons.lang3.version>3.4</commons.lang3.version>
@@ -27,6 +28,7 @@
 		<mybatis.spring.version>1.2.4</mybatis.spring.version>
 		<ok.http.version>2.7.5</ok.http.version>
 		<hibernate.version>5.2.4.Final</hibernate.version>
+		<flyway.core.version>4.0</flyway.core.version>
 		<javax.validation.version>1.1.0.Final</javax.validation.version>
 		<juint.version>4.12</juint.version>
 
@@ -57,6 +59,13 @@
 				<version>${spring.boot.version}</version>
 			</dependency>
 			<!-- end SpringBoot 依赖 -->
+			
+			
+			<dependency>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-core</artifactId>
+				<version>${flyway.core.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
