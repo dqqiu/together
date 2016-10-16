@@ -68,6 +68,12 @@
 				<version>${framework.version}</version>
 			</dependency>
 			
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>framework-boot-redis</artifactId>
+				<version>${framework.version}</version>
+			</dependency>
+			
 			<!-- 字典项目引入 -->
 			<dependency>
 				<groupId>org.spirit</groupId>

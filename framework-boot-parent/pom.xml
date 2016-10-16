@@ -57,5 +57,6 @@
 		<module>framework-boot-test</module>
 		<module>framework-boot-core</module>
 		<module>framework-boot-web</module>
+		<module>framework-boot-redis</module>
 	</modules>
 </project>

@@ -12,16 +12,20 @@
 		<dependency>
 			<groupId>org.spirit</groupId>
 			<artifactId>together-dictionary-api</artifactId>
-			<version>${dictionary.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.spirit</groupId>
 			<artifactId>framework-boot-web</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.spirit</groupId>
 			<artifactId>framework-boot-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.spirit</groupId>
+			<artifactId>framework-boot-redis</artifactId>
 		</dependency>
 	</dependencies>
 </project>

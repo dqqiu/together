@@ -35,7 +35,7 @@ public class PageInterceptor implements HandlerInterceptor {
 
   public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2)
       throws Exception {
-    return false;
+    return true;
   }
 
 }

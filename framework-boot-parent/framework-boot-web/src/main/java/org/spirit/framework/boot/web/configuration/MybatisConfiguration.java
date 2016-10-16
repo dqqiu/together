@@ -1,11 +1,3 @@
-/**
- * @description : Mybatis配置,开启事务支持
- * @author      : qiudequan
- * @path        : com.dqqiu.spring.boot.configuration.MybatisConfiguration
- * when                     who                  what
- * --------------------------------------------------------
- * 2016年9月29日                   qiudequan            create
- */
 package org.spirit.framework.boot.web.configuration;
 
 import java.io.IOException;
@@ -31,6 +23,17 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 
 import com.github.pagehelper.PageHelper;
 
+/**
+ * @Project       : framework-boot-web
+ * @Program Name  : org.spirit.framework.boot.web.configuration.MybatisConfiguration.java
+ * @Description   : TODO qiudequan Mybatis配置,开启事务支持
+ * @Author        : qiudequan
+ * @Creation Date : 2016年10月16日 下午10:24:21 
+ * @ModificationHistory  
+ * Who          When             What 
+ * ----------   -------------    -----------------------------------
+ * qiudequan     2016年10月16日        create
+ */
 @Configuration
 @EnableTransactionManagement
 public class MybatisConfiguration implements TransactionManagementConfigurer {
@@ -66,6 +69,12 @@ public class MybatisConfiguration implements TransactionManagementConfigurer {
     return new SqlSessionTemplate(sqlSessionFactory);
   }
 
+  /**
+   *  @Description	: TODO qiudequan 注入PageHelper分页插件
+   *  @return         : PageHelper
+   *  @Creation Date  : 2016年10月16日 下午10:24:38 
+   *  @Author         : qiudequan
+   */
   @Bean
   public PageHelper pageHelper() {
     logger.info(">>>>>>>>>>>> Injecting PageHelper Plugin <<<<<<<<<<<<");

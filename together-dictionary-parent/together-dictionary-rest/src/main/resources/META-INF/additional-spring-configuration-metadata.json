@@ -1,0 +1,52 @@
+{"properties": [
+  {
+    "name": "mybatis.mapper-locations",
+    "type": "java.lang.String",
+    "description": "A description for 'mybatis.mapper-locations'"
+  },
+  {
+    "name": "mybatis.mapper-scan-packages",
+    "type": "java.lang.String",
+    "description": "A description for 'mybatis.mapper-scan-packages'"
+  },
+  {
+    "name": "server.version",
+    "type": "java.lang.String",
+    "description": "A description for 'server.version'"
+  },
+  {
+    "name": "db.mysql.url",
+    "type": "java.lang.String",
+    "description": "A description for 'db.mysql.url'"
+  },
+  {
+    "name": "db.mysql.user",
+    "type": "java.lang.String",
+    "description": "A description for 'db.mysql.user'"
+  },
+  {
+    "name": "db.mysql.pass",
+    "type": "java.lang.String",
+    "description": "A description for 'db.mysql.pass'"
+  },
+  {
+    "name": "db.redis.host",
+    "type": "java.lang.String",
+    "description": "A description for 'db.redis.host'"
+  },
+  {
+    "name": "db.redis.pass",
+    "type": "java.lang.String",
+    "description": "A description for 'db.redis.pass'"
+  },
+  {
+    "name": "db.redis.port",
+    "type": "java.lang.String",
+    "description": "A description for 'db.redis.port'"
+  },
+  {
+    "name": "db.redis.cur-db",
+    "type": "java.lang.String",
+    "description": "A description for 'db.redis.cur-db'"
+  }
+]}

@@ -12,7 +12,9 @@ db:
     pass: root
   redis:
     host: 127.0.01
+    port: 6379
     pass: qiu842276463
+    curDb: 0
     
 
 spring:
@@ -54,7 +56,9 @@ spring:
   ##redis相关配置
   redis:
     host: ${db.redis.host}
+    port: ${db.redis.port}
     password: ${db.redis.pass}
+    database: ${db.redis.curDb}
     pool:
       max-active: 8
       min-idle: 0
@@ -72,6 +76,7 @@ mybatis:
 flyway:
   encoding: UTF-8
       
+debug: true
     
 
 
