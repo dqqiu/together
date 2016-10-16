@@ -8,6 +8,10 @@
 	<name>together</name>
 
 	<properties>
+		<!-- 数据字典项目版本 -->
+		<dictionary.version>1.0.0-SNAPSHOT</dictionary.version>
+		<!-- 安全防护项目版本 -->
+		<security.version>1.0.0-SNAPSHOT</security.version>
 		<java.version>1.8</java.version>
 		<file.encoding>UTF-8</file.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,14 +28,15 @@
 		<shiro.version>1.2.4</shiro.version>
 		<aspectjweaver.version>1.8.8</aspectjweaver.version>
 		<druid.version>1.0.18</druid.version>
-		<mybatis.version>3.2.5</mybatis.version>
+		<mybatis.version>3.2.8</mybatis.version>
 		<mybatis.spring.version>1.2.4</mybatis.spring.version>
 		<ok.http.version>2.7.5</ok.http.version>
 		<hibernate.version>5.2.4.Final</hibernate.version>
 		<flyway.core.version>4.0</flyway.core.version>
 		<javax.validation.version>1.1.0.Final</javax.validation.version>
 		<juint.version>4.12</juint.version>
-
+		<servlet-api.version>2.5</servlet-api.version>
+		<pagehelper.version>4.1.1</pagehelper.version>
 		<!-- maven插件相关依赖 start -->
 		<maven.eclipse.plugin.version>2.10</maven.eclipse.plugin.version>
 		<maven.jar.plugin.version>2.4</maven.jar.plugin.version>
@@ -59,8 +64,8 @@
 				<version>${spring.boot.version}</version>
 			</dependency>
 			<!-- end SpringBoot 依赖 -->
-			
-			
+
+
 			<dependency>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-core</artifactId>
@@ -70,6 +75,12 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.api.versioin}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet-api.version}</version>
 			</dependency>
 
 
@@ -247,6 +258,13 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 
 	<modules>

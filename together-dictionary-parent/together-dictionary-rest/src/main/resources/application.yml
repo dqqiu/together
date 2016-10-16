@@ -1,0 +1,80 @@
+##服务配置
+server:
+  port: 8081
+  address: 127.0.0.1
+  version: v1
+  context-path: /${server.version}/dictionary
+
+db:
+  mysql:
+    url: jdbc:mysql://localhost:3306/dictionary
+    user: root
+    pass: root
+  redis:
+    host: 127.0.01
+    pass: qiu842276463
+    
+
+spring:
+  ##json格式化配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  ##邮箱配置
+  mail:
+    host: smtp.163.com
+    username: qiudequan624@163.com
+    password: qiudequan.aztt+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  ##数据库相关配置，使用druid作为连接池
+  datasource:
+    url: ${db.mysql.url}
+    username: ${db.mysql.user}
+    password: ${db.mysql.pass}
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat,wall,slf4j
+    maxActiv: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  ##redis相关配置
+  redis:
+    host: ${db.redis.host}
+    password: ${db.redis.pass}
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 8
+      max-wait: 1
+      
+      
+##mybatis配置
+mybatis:
+  mapperLocations: classpath:/mapper/*.xml
+  mapperScanPackages: org.spirit.together.dictionary.mapper
+  
+
+##flyway配置
+flyway:
+  encoding: UTF-8
+      
+    
+
+
+  
+  
+   
