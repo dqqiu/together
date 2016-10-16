@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="logger.moduleName" value="security" />
+	<include resource="logback-together.xml"/>
+</configuration>

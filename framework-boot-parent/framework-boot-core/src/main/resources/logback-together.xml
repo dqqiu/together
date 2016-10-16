@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="org.spirit.framework.core.logger.TogetherPatternLayout">
+				<Pattern>%d{HH:mm:ss.SSS} ${logger.moduleName}[%thread] %-5level %logger - %msg%n
+				</Pattern>
+			</layout>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+	
+	<springProfile name="test,prod,dev,stage">
+		<appender name="FLUENT"
+			class="ch.qos.logback.more.appenders.FluentLogbackAppender">
+			<!-- Tag for Fluentd. Farther information: http://docs.fluentd.org/articles/config-file -->
+			<tag>${logger.moduleName}.${spring.profiles.active}</tag>
+			<!-- [Optional] Label for Fluentd. Farther information: http://docs.fluentd.org/articles/config-file -->
+			<label>java</label>
+			<!-- Host name/address and port number which Flentd placed -->
+			<remoteHost>${logger.host}</remoteHost>
+			<port>${logger.port}</port>
+			<!-- Max queue size of logs which is waiting to be sent (When it reach 
+				to the max size, the log will be disappeared). -->
+			<maxQueueSize>999</maxQueueSize>
+			<layout class="com.ljt.framework.core.logger.LJTPatternLayout">
+				<Pattern>%d{HH:mm:ss.SSS} ${logger.moduleName}.${spring.profiles.active} [%thread] %-5level %logger - %msg%n
+				</Pattern>
+			</layout>
+		</appender>
+
+		<logger name="com.alibaba.dubbo" level="ERROR" />
+		<logger name="springfox" level="ERROR" />
+		<logger name="org.flywaydb" level="ERROR"/>
+		<logger name="druid.sql.Statement" level="DEBUG" />
+		<logger name="org.spirit" level="INFO" />
+		<root level="INFO">
+			<appender-ref ref="FLUENT" />
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+	
+	<springProfile name="default">
+		<logger name="com.alibaba.dubbo" level="ERROR" />
+		<logger name="org.spirit" level="DEBUG" />
+		<logger name="springfox" level="ERROR" />
+		<logger name="druid.sql.Statement" level="DEBUG" />
+		<logger name="org.flywaydb" level="DEBUG"/>
+		<root level="INFO">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+</included>

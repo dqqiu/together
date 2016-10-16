@@ -7,7 +7,7 @@ server:
 
 db:
   mysql:
-    url: jdbc:mysql://localhost:3306/dictionary
+    url: jdbc:mysql://localhost:3306/dictionary?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&failOverReadOnly=false
     user: root
     pass: root
   redis:

@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.spirit</groupId>
     <artifactId>together-security-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${security.version}</version>
   </parent>
   <artifactId>together-security-api</artifactId>
 </project>

@@ -12,6 +12,8 @@
 		<dictionary.version>1.0.0-SNAPSHOT</dictionary.version>
 		<!-- 安全防护项目版本 -->
 		<security.version>1.0.0-SNAPSHOT</security.version>
+		<!-- 基础框架项目版本 -->
+		<framework.version>1.0.0-SNAPSHOT</framework.version>
 		<java.version>1.8</java.version>
 		<file.encoding>UTF-8</file.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,6 +47,54 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- 内部项目框架版本依赖 start -->
+			
+			<!-- 内部框架引入 -->
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>framework-boot-core</artifactId>
+				<version>${framework.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>framework-boot-test</artifactId>
+				<version>${framework.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>framework-boot-web</artifactId>
+				<version>${framework.version}</version>
+			</dependency>
+			
+			<!-- 字典项目引入 -->
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>together-dictionary-api</artifactId>
+				<version>${dictionary.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>together-dictionary-rest</artifactId>
+				<version>${dictionary.version}</version>
+			</dependency>
+			
+			<!-- 安全防护项目引入 -->
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>together-security-api</artifactId>
+				<version>${security.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.spirit</groupId>
+				<artifactId>together-security-rest</artifactId>
+				<version>${security.version}</version>
+			</dependency>
+			<!-- end 内部项目框架版本依赖 -->
+		
 			<!-- SpringBoot 依赖 start -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
