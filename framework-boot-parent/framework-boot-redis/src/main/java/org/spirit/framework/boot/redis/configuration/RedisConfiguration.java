@@ -2,6 +2,8 @@ package org.spirit.framework.boot.redis.configuration;
 
 import java.lang.reflect.Method;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -24,8 +26,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class RedisConfiguration extends CachingConfigurerSupport {
   
+  private static final Logger logger = LoggerFactory.getLogger(RedisConfiguration.class);
+  
   @Bean  
-  public KeyGenerator wiselyKeyGenerator(){  
+  public KeyGenerator togetherKeyGenerator(){  
       return new KeyGenerator() {  
           public Object generate(Object target, Method method, Object... params) {  
               StringBuilder sb = new StringBuilder();  
@@ -48,6 +52,7 @@ public class RedisConfiguration extends CachingConfigurerSupport {
   @Bean  
   public RedisTemplate<String, String> redisTemplate(  
           RedisConnectionFactory factory) {  
+      logger.error(">>>>>>>>>>>> Initialize RedisTemplate <<<<<<<<<<<<");
       StringRedisTemplate template = new StringRedisTemplate(factory);  
       Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);  
       ObjectMapper om = new ObjectMapper();  

@@ -17,9 +17,9 @@ public class RedisUtil {
   private RedisTemplate redisTemplate;
   
   /**
-   *  @Description	: TODO qiudequan 根据key获取缓存对象
+   *  @Description	: qiudequan 根据key获取缓存对象
    *  @return         : Object
-   *  @Creation Date  : 2016年10月16日 下午9:47:55 
+   *  @Creation Date  : 2016年10月19日 下午4:18:54 
    *  @Author         : qiudequan
    */
   public Object get(final String key) {
@@ -28,7 +28,7 @@ public class RedisUtil {
   }
   
   /**
-   *  @Description	: TODO qiudequan 写入缓存
+   *  @Description	: qiudequan 写入缓存
    *  @return         : boolean
    *  @Creation Date  : 2016年10月16日 下午9:51:02 
    *  @Author         : qiudequan
@@ -46,7 +46,7 @@ public class RedisUtil {
   }
   
   /**
-   *  @Description	: TODO qiudequan 写入缓存,可设置过期时间(单位：秒)
+   *  @Description	: qiudequan 写入缓存,可设置过期时间(单位：秒)
    *  @return         : boolean
    *  @Creation Date  : 2016年10月16日 下午9:52:41 
    *  @Author         : qiudequan
@@ -65,7 +65,7 @@ public class RedisUtil {
   }
   
   /**
-   *  @Description	: TODO qiudequan 判断缓存中是否存在指定key
+   *  @Description	: qiudequan 判断缓存中是否存在指定key
    *  @return         : boolean
    *  @Creation Date  : 2016年10月16日 下午9:55:45 
    *  @Author         : qiudequan
@@ -75,7 +75,7 @@ public class RedisUtil {
   }
   
   /**
-   *  @Description	: TODO qiudequan 删除缓存
+   *  @Description	: qiudequan 删除缓存
    *  @return         : void
    *  @Creation Date  : 2016年10月16日 下午9:57:08 
    *  @Author         : qiudequan
@@ -87,7 +87,7 @@ public class RedisUtil {
   }
   
   /**
-   *  @Description	: TODO qiudequan 批量删除缓存
+   *  @Description	: qiudequan 批量删除缓存
    *  @return         : void
    *  @Creation Date  : 2016年10月16日 下午9:58:56 
    *  @Author         : qiudequan
@@ -100,7 +100,7 @@ public class RedisUtil {
   }
   
   /**
-   *  @Description	: TODO qiudequan 批量删除缓存
+   *  @Description	: qiudequan 批量删除缓存
    *  @return         : void
    *  @Creation Date  : 2016年10月16日 下午10:00:03 
    *  @Author         : qiudequan
