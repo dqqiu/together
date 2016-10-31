@@ -48,59 +48,59 @@
 	<dependencyManagement>
 		<dependencies>
 			<!-- 内部项目框架版本依赖 start -->
-			
+
 			<!-- 内部框架引入 -->
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>framework-boot-core</artifactId>
 				<version>${framework.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>framework-boot-test</artifactId>
 				<version>${framework.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>framework-boot-web</artifactId>
 				<version>${framework.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>framework-boot-redis</artifactId>
 				<version>${framework.version}</version>
 			</dependency>
-			
+
 			<!-- 字典项目引入 -->
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>together-dictionary-api</artifactId>
 				<version>${dictionary.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>together-dictionary-rest</artifactId>
 				<version>${dictionary.version}</version>
 			</dependency>
-			
+
 			<!-- 安全防护项目引入 -->
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>together-security-api</artifactId>
 				<version>${security.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.spirit</groupId>
 				<artifactId>together-security-rest</artifactId>
 				<version>${security.version}</version>
 			</dependency>
 			<!-- end 内部项目框架版本依赖 -->
-		
+
 			<!-- SpringBoot 依赖 start -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
@@ -162,7 +162,13 @@
 				<artifactId>pagehelper</artifactId>
 				<version>${pagehelper.version}</version>
 			</dependency>
-
+			
+			<!-- Shiro 依赖 start -->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-ehcache</artifactId>
@@ -173,6 +179,12 @@
 				<artifactId>shiro-spring</artifactId>
 				<version>${shiro.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-web</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<!-- end Shiro 依赖 -->
 			<dependency>
 				<groupId>com.google.code.gson</groupId>
 				<artifactId>gson</artifactId>
