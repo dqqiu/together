@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 
  * @Project       : framework-boot-web
  * @Program Name  : org.spirit.framework.boot.web.configuration.Swagger2Configuration.java
- * @Description   : TODO qiudequan Swagger2配置，用户生成接口API文档
+ * @Description   : qiudequan Swagger2配置，用户生成接口API文档
  * @Author        : qiudequan
  * @Creation Date : 2016年10月14日 下午10:25:04 
  * @ModificationHistory  

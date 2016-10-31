@@ -3,7 +3,7 @@ package org.spirit.framework.core.utils;
 /**
  * @Project       : framework-boot-core
  * @Program Name  : org.spirit.framework.core.utils.StringUtils.java
- * @Description   : TODO qiudequan 字符串工具类
+ * @Description   : qiudequan 字符串工具类
  * @Author        : qiudequan
  * @Creation Date : 2016年10月13日 下午5:53:46 
  * @ModificationHistory  
@@ -16,7 +16,7 @@ public class StringUtils extends org.springframework.util.StringUtils {
   private static final char UNDERLINE = '_';
   
   /**
-   *  @Description	: TODO qiudequan 字符串拼接，适用于较短的字符串拼接
+   *  @Description	: qiudequan 字符串拼接，适用于较短的字符串拼接
    *  @return         : String
    *  @Creation Date  : 2016年10月13日 下午5:59:22 
    *  @Author         : qiudequan

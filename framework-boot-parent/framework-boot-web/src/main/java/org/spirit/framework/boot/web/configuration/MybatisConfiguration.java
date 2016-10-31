@@ -26,7 +26,7 @@ import com.github.pagehelper.PageHelper;
 /**
  * @Project       : framework-boot-web
  * @Program Name  : org.spirit.framework.boot.web.configuration.MybatisConfiguration.java
- * @Description   : TODO qiudequan Mybatis配置,开启事务支持
+ * @Description   : qiudequan Mybatis配置,开启事务支持
  * @Author        : qiudequan
  * @Creation Date : 2016年10月16日 下午10:24:21 
  * @ModificationHistory  
@@ -70,7 +70,7 @@ public class MybatisConfiguration implements TransactionManagementConfigurer {
   }
 
   /**
-   *  @Description	: TODO qiudequan 注入PageHelper分页插件
+   *  @Description	: qiudequan 注入PageHelper分页插件
    *  @return         : PageHelper
    *  @Creation Date  : 2016年10月16日 下午10:24:38 
    *  @Author         : qiudequan

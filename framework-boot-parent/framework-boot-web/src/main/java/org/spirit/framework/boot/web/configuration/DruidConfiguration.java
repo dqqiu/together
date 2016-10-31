@@ -11,7 +11,7 @@ import com.alibaba.druid.support.http.WebStatFilter;
 /**
  * @Project       : framework-boot-web
  * @Program Name  : org.spirit.framework.boot.web.configuration.DruidConfiguration.java
- * @Description   : TODO qiudequan druid配置
+ * @Description   : qiudequan druid配置
  * @Author        : qiudequan
  * @Creation Date : 2016年10月14日 下午10:21:32 
  * @ModificationHistory  
@@ -23,7 +23,7 @@ import com.alibaba.druid.support.http.WebStatFilter;
 public class DruidConfiguration {
     /**
      * SpringBoot中使用ServletRegistrationBean注册一个Servlet
-     *  @Description	: TODO qiudequan 注册StatViewServlet
+     *  @Description	: qiudequan 注册StatViewServlet
      *  @return         : ServletRegistrationBean
      *  @Creation Date  : 2016年10月14日 下午11:01:25 
      *  @Author         : qiudequan
@@ -48,7 +48,7 @@ public class DruidConfiguration {
     
     /**
      * SpringBoot中使用FilterRegistrationBean注册一个Filter
-     *  @Description	: TODO qiudequan 注册StatFilter
+     *  @Description	: qiudequan 注册StatFilter
      *  @return         : FilterRegistrationBean
      *  @Creation Date  : 2016年10月14日 下午11:02:16 
      *  @Author         : qiudequan

@@ -20,7 +20,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 /**
  * @Project       : framework-boot-web
  * @Program Name  : org.spirit.framework.boot.web.aspect.WebRequestAspect.java
- * @Description   : TODO qiudequan Web请求切面，以日志方式记录访问时间等信息
+ * @Description   : qiudequan Web请求切面，以日志方式记录访问时间等信息
  * @Author        : qiudequan
  * @Creation Date : 2016年10月16日 下午7:22:51 
  * @ModificationHistory  
@@ -36,7 +36,7 @@ public class WebRequestAspect {
   ThreadLocal<Long> startTime = new ThreadLocal<Long>();
   
   /**
-   *  @Description	: TODO qiudequan 切入点
+   *  @Description	: qiudequan 切入点
    *  @return         : void
    *  @Creation Date  : 2016年10月16日 下午7:22:24 
    *  @Author         : qiudequan

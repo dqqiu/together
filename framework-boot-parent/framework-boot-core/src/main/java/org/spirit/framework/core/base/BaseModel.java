@@ -3,7 +3,7 @@ package org.spirit.framework.core.base;
 /**
  * @Project       : framework-boot-core
  * @Program Name  : org.spirit.framework.core.base.BaseModel.java
- * @Description   : TODO qiudequan 基类
+ * @Description   : qiudequan 基类
  * @Author        : qiudequan
  * @Creation Date : 2016年10月14日 上午10:55:23 
  * @ModificationHistory  

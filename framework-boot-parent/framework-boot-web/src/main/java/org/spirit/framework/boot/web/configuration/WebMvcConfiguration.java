@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * @Project       : framework-boot-web
  * @Program Name  : org.spirit.framework.boot.web.configuration.WebMvcConfiguration.java
- * @Description   : TODO qiudequan SpringMvc相关配置
+ * @Description   : qiudequan SpringMvc相关配置
  * @Author        : qiudequan
  * @Creation Date : 2016年10月15日 下午4:15:25 
  * @ModificationHistory  
