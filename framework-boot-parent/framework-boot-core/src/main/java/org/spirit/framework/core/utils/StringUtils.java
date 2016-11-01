@@ -1,5 +1,8 @@
 package org.spirit.framework.core.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @Project       : framework-boot-core
  * @Program Name  : org.spirit.framework.core.utils.StringUtils.java
@@ -12,7 +15,7 @@ package org.spirit.framework.core.utils;
  * qiudequan     2016年10月13日        create
  */
 public class StringUtils extends org.springframework.util.StringUtils {
-  
+  private static final Logger logger = LoggerFactory.getLogger(StringUtils.class);
   private static final char UNDERLINE = '_';
   
   /**
@@ -101,6 +104,20 @@ public class StringUtils extends org.springframework.util.StringUtils {
     chars[0] -= 32;
     return String.valueOf(chars);
   }
+  
+  public static Integer integerOf(String source){
+    if(!hasText(source)){
+      return null;
+    }
+    try {
+      return Integer.valueOf(source);
+    } catch (NumberFormatException e) {
+      logger.error("NumberFormatExcepiton on String >> Integer.[source:{}]", source, e);
+      return null;
+    }
+  }
+  
+  
   public static void main(String[] args) {
     String result = camel("user_code");
     System.out.println(result);
