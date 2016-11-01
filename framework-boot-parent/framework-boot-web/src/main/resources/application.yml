@@ -5,3 +5,8 @@ together:
     port: 8080
     path: /app
     version: v1
+  page:
+    pageNoName: pageNo
+    pageSizeName: pageSize
+    pageSize: 10
+    pageNo: 1
