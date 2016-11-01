@@ -48,5 +48,15 @@
     "name": "db.redis.cur-db",
     "type": "java.lang.String",
     "description": "A description for 'db.redis.cur-db'"
+  },
+  {
+    "name": "together.mybatis.mapper-locations",
+    "type": "java.lang.String",
+    "description": "A description for 'together.mybatis.mapper-locations'"
+  },
+  {
+    "name": "together.mybatis.mapper-scan-packages",
+    "type": "java.lang.String",
+    "description": "A description for 'together.mybatis.mapper-scan-packages'"
   }
 ]}

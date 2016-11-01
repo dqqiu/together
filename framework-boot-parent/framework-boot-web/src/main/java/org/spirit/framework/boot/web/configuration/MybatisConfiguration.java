@@ -43,7 +43,7 @@ public class MybatisConfiguration implements TransactionManagementConfigurer {
   private DataSource dataSource;
 
   @Bean(name = "sqlSessionFactory")
-  public SqlSessionFactory sqlSessionFactory(@Value(value = "${mybatis.mapperLocations}") String mapperLocations) {
+  public SqlSessionFactory sqlSessionFactory(@Value(value = "${together.mybatis.mapperLocations}") String mapperLocations) {
     logger.info(">>>>>>>>>>>> Declaracting sqlSessionFactory <<<<<<<<<<<<");
     SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
     sqlSessionFactoryBean.setDataSource(dataSource);

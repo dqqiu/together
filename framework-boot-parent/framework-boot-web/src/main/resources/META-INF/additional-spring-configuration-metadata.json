@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "together.app.name",
+    "type": "java.lang.String",
+    "description": "A description for 'together.app.name'"
+  },
+  {
+    "name": "together.app.host",
+    "type": "java.lang.String",
+    "description": "A description for 'together.app.host'"
+  },
+  {
+    "name": "together.app.port",
+    "type": "java.lang.String",
+    "description": "A description for 'together.app.port'"
+  },
+  {
+    "name": "together.app.path",
+    "type": "java.lang.String",
+    "description": "A description for 'together.app.path'"
+  },
+  {
+    "name": "together.app.version",
+    "type": "java.lang.String",
+    "description": "A description for 'together.app.version'"
+  }
+]}

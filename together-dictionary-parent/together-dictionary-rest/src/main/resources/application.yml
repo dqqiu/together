@@ -67,9 +67,10 @@ spring:
       
       
 ##mybatis配置
-mybatis:
-  mapperLocations: classpath:/mapper/*.xml
-  mapperScanPackages: org.spirit.together.dictionary.mapper
+together:
+  mybatis:
+    mapperLocations: classpath:/mapper/*.xml
+    mapperScanPackages: org.spirit.together.dictionary.mapper
   
 
 ##flyway配置

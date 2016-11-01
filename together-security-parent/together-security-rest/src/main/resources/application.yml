@@ -1,0 +1,5 @@
+together:
+  shiro:
+    loginUrl: /login
+    successUrl: /index
+    unauthorizedUrl: /403

@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "together.shiro.login-url",
+    "type": "java.lang.String",
+    "description": "A description for 'together.shiro.login-url'"
+  },
+  {
+    "name": "together.shiro.success-url",
+    "type": "java.lang.String",
+    "description": "A description for 'together.shiro.success-url'"
+  },
+  {
+    "name": "together.shiro.unauthorized-url",
+    "type": "java.lang.String",
+    "description": "A description for 'together.shiro.unauthorized-url'"
+  }
+]}
