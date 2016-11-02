@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spirit.framework.boot.web.properties.PageProperties;
+import org.spirit.framework.core.utils.BeanFactoryUtils;
 import org.spirit.framework.core.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -25,9 +26,6 @@ import com.github.pagehelper.PageHelper;
  */
 public class PageInterceptor implements HandlerInterceptor {
 
-  @Autowired
-  private PageProperties pageProperties;
-  
   private static final Logger logger = LoggerFactory.getLogger(PageInterceptor.class);
   
   public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object arg,
@@ -42,6 +40,7 @@ public class PageInterceptor implements HandlerInterceptor {
 
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg)
       throws Exception {
+    PageProperties pageProperties = BeanFactoryUtils.getBean(PageProperties.class);
     // 存在分页参数[当前页]选项，则进行分页
     Integer pageNo = StringUtils.integerOf(request.getParameter(pageProperties.getPageNoName()));
     try {
