@@ -20,7 +20,7 @@ public class AppProperties {
   /** 应用名称 */
   private String name;
   /** 应用部署机器域名/IP */
-  private String host;
+  private String host = "127.0.0.1";
   /** 应用占用端口号 */
   private String port;
   /** 应用版本号 */

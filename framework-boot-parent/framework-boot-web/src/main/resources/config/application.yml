@@ -1,0 +1,4 @@
+server:
+  address: ${together.app.host}
+  port: ${together.app.port}
+  context-path: /${together.app.version}/${together.app.path}

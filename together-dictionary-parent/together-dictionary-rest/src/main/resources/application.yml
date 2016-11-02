@@ -1,9 +1,15 @@
-##服务配置
-server:
-  port: 8081
-  address: 127.0.0.1
-  version: v1
-  context-path: /${server.version}/dictionary
+together:
+  ##mybatis配置
+  mybatis:
+    mapperLocations: classpath:/mapper/*.xml
+    mapperScanPackages: org.spirit.together.dictionary.mapper
+  ##自定义应用配置
+  app:
+    host: 127.0.0.1
+    name: dictionary
+    path: dictionary
+    port: 8081
+    version: v1
 
 db:
   mysql:
@@ -66,12 +72,6 @@ spring:
       max-wait: 1
       
       
-##mybatis配置
-together:
-  mybatis:
-    mapperLocations: classpath:/mapper/*.xml
-    mapperScanPackages: org.spirit.together.dictionary.mapper
-
 ##flyway配置
 flyway:
   encoding: UTF-8

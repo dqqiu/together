@@ -13,8 +13,7 @@
   {
     "name": "together.app.port",
     "type": "java.lang.String",
-    "description": "应用部署端口",
-    "defaultValue": "8080"
+    "description": "应用部署端口"
   },
   {
     "name": "together.app.path",

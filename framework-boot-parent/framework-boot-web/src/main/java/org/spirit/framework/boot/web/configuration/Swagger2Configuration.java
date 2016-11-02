@@ -1,5 +1,7 @@
 package org.spirit.framework.boot.web.configuration;
 
+import org.spirit.framework.boot.web.properties.AppProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -29,25 +31,25 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2                         // 启用Swager2
 @ComponentScan(basePackages = {"org.spirit"})
+@EnableConfigurationProperties(value = {AppProperties.class})
 public class Swagger2Configuration {
 
-  @SuppressWarnings("unchecked")
   @Bean
-  public Docket webApi(){
+  public Docket webApi(AppProperties appProperties){
       Docket docket = new Docket(DocumentationType.SWAGGER_2)
-              .groupName("WebApi")
+              .groupName(appProperties.getName())
               .genericModelSubstitutes(DeferredResult.class)
               .pathMapping("/")
               .select()
-              .paths(Predicates.or(PathSelectors.regex("/api/*")))
-              .build().apiInfo(webApiInfo());
+              .paths(PathSelectors.any())
+              .build().apiInfo(webApiInfo(appProperties));
       return docket;
   }
 
   @SuppressWarnings("deprecation")
-  private ApiInfo webApiInfo() {
-      ApiInfo apiInfo = new ApiInfo("WebApi接口",       // 大标题
-              "WebApi相关测试",           // 小标题
+  private ApiInfo webApiInfo(AppProperties appProperties) {
+      ApiInfo apiInfo = new ApiInfo(appProperties.getName() + "接口文档",       // 大标题
+          appProperties.getName(),           // 小标题
               "1.0",                                  // 版本
               "",            //
               "dqqiu",                                // 作者
