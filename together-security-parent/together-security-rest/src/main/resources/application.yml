@@ -1,5 +1,6 @@
 together:
-  shiro:
-    loginUrl: /login
-    successUrl: /index
-    unauthorizedUrl: /403
+  app:
+    name: security
+    path: security
+    port: 8082
+    version: v1

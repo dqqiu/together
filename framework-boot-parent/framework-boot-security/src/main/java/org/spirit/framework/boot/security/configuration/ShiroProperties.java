@@ -1,4 +1,4 @@
-package org.spirit.together.security.rest.autoconfiguration;
+package org.spirit.framework.boot.security.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

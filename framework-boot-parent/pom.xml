@@ -58,5 +58,6 @@
 		<module>framework-boot-core</module>
 		<module>framework-boot-web</module>
 		<module>framework-boot-redis</module>
+		<module>framework-boot-security</module>
 	</modules>
 </project>

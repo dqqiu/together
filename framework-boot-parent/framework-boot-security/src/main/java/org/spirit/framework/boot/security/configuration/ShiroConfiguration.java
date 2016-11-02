@@ -1,13 +1,12 @@
-package org.spirit.together.security.rest.autoconfiguration;
+package org.spirit.framework.boot.security.configuration;
 
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.spirit.together.security.rest.realm.TogetherRealm;
+import org.spirit.framework.boot.security.realm.TogetherRealm;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
