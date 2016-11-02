@@ -1,6 +1,7 @@
 package org.spirit.framework.boot.web.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 /**
  * @Project       : framework-boot-web
@@ -13,12 +14,18 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * ----------   -------------    -----------------------------------
  * qiudequan     2016年11月1日        create
  */
+@Component
 @ConfigurationProperties(prefix = "together.app")
 public class AppProperties {
+  /** 应用名称 */
   private String name;
+  /** 应用部署机器域名/IP */
   private String host;
+  /** 应用占用端口号 */
   private String port;
+  /** 应用版本号 */
   private String version;
+  /** 应用访问路径 */
   private String path;
   public String getName() {
     return name;

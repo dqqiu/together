@@ -71,13 +71,10 @@ together:
   mybatis:
     mapperLocations: classpath:/mapper/*.xml
     mapperScanPackages: org.spirit.together.dictionary.mapper
-  
 
 ##flyway配置
 flyway:
   encoding: UTF-8
-      
-debug: true
     
 
 

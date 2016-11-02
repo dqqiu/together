@@ -3,10 +3,15 @@ together:
     name: app
     host: 127.0.0.1
     port: 8080
-    path: /app
+    path: app
     version: v1
   page:
-    pageNoName: pageNo
-    pageSizeName: pageSize
-    pageSize: 10
-    pageNo: 1
+    page-no-name: 
+    page-size-name: 
+    page-size: 10
+  
+    
+server:
+  address: ${together.app.host}
+  port: ${together.app.name}
+  context-path: /${together.app.version}/${together.app.path}
