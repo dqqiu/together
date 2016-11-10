@@ -12,5 +12,6 @@
   <modules>
   	<module>together-dictionary-api</module>
   	<module>together-dictionary-rest</module>
+  	<module>together-dictionary-translate</module>
   </modules>
 </project>
