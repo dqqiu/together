@@ -12,7 +12,17 @@ package org.spirit.together.dictionary.translate;
  * qiudequan     2016年11月10日        create
  */
 public class DictionaryTranslator {
-  public static void translate(Object source) {
-    
+  private static final DictionaryTranslator instance = new DictionaryTranslator();
+  
+  private DictionaryTranslator() {}
+
+  public static DictionaryTranslator getInstance() {
+    return instance;
+  }
+
+
+
+  public void translate(Object source) {
+
   }
 }
