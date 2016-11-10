@@ -10,8 +10,9 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spirit.framework.boot.web.properties.MybatisProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -36,22 +37,25 @@ import com.github.pagehelper.PageHelper;
  */
 @Configuration
 @EnableTransactionManagement
+@EnableConfigurationProperties(MybatisProperties.class)
 public class MybatisConfiguration implements TransactionManagementConfigurer {
   private static final Logger logger = LoggerFactory.getLogger(MybatisConfiguration.class);
 
   @Autowired
   private DataSource dataSource;
+  @Autowired
+  private MybatisProperties mybatisProperties;
 
   @Bean(name = "sqlSessionFactory")
-  public SqlSessionFactory sqlSessionFactory(@Value(value = "${together.mybatis.mapperLocations}") String mapperLocations) {
+  public SqlSessionFactory sqlSessionFactory() {
     logger.info(">>>>>>>>>>>> Declaracting sqlSessionFactory <<<<<<<<<<<<");
     SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
     sqlSessionFactoryBean.setDataSource(dataSource);
     //添加XML目录
     ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
     try {
-      sqlSessionFactoryBean.setMapperLocations(resolver.getResources(mapperLocations));
-      logger.info(">>>>>>>>>>>> Mybatis's MapperLocations is [{}] <<<<<<<<<<<<", mapperLocations);
+      sqlSessionFactoryBean.setMapperLocations(resolver.getResources(this.mybatisProperties.getMapperLocations()));
+      logger.info(">>>>>>>>>>>> Mybatis's MapperLocations is [{}] <<<<<<<<<<<<", this.mybatisProperties.getMapperLocations());
       return sqlSessionFactoryBean.getObject();
     } catch (IOException e) {
       e.printStackTrace();

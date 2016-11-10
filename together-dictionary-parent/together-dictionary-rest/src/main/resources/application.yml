@@ -1,8 +1,8 @@
 together:
   ##mybatis配置
   mybatis:
-    mapperLocations: classpath:/mapper/*.xml
-    mapperScanPackages: org.spirit.together.dictionary.mapper
+    mapper-locations: classpath:/mapper/*.xml
+    mapper-scan-packages: org.spirit.together.dictionary.api.mapper
   ##自定义应用配置
   app:
     host: 127.0.0.1
