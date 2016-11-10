@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.spirit.framework.boot.web.properties.PageProperties;
 import org.spirit.framework.core.utils.BeanFactoryUtils;
 import org.spirit.framework.core.utils.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
