@@ -2,6 +2,7 @@ package org.spirit.together.dictionary.api.vo;
 
 import java.lang.Long;
 import java.lang.String;
+import java.util.Date;
 
 /**
  *	
@@ -20,9 +21,9 @@ public class DictDataVo {
   private String dscp;
 
   /**
-   * 字段：dict_type_cd. 类型：VARCHAR(50). 备注：字典类型CD.
+   * 字段：dict_data_type_cd. 类型：VARCHAR(50). 备注：字典类型CD.
    */
-  private String dictTypeCd;
+  private String dictDataTypeCd;
 
   /**
    * 字段：created_by. 类型：VARCHAR(50). 备注：创建人.
@@ -35,30 +36,30 @@ public class DictDataVo {
   private String updatedBy;
 
   /**
-   * 字段：create_time. 类型：BIGINT(15, 0). 备注：创建时间.
+   * 字段：create_time. 类型：DATETIME(19). 备注：创建时间.
    */
-  private Long createTime;
+  private Date createTime;
   /**
    * 备注：创建时间--开始时间,查询用
    */
-  private Long createTimeBegin;
+  private Date createTimeBegin;
   /**
    * 备注：创建时间--结束时间,查询用
    */
-  private Long createTimeEnd;
+  private Date createTimeEnd;
 
   /**
-   * 字段：update_time. 类型：BIGINT(15, 0). 备注：最近一次更新时间.
+   * 字段：update_time. 类型：DATETIME(19). 备注：最近一次更新时间.
    */
-  private Long updateTime;
+  private Date updateTime;
   /**
    * 备注：最近一次更新时间--开始时间,查询用
    */
-  private Long updateTimeBegin;
+  private Date updateTimeBegin;
   /**
    * 备注：最近一次更新时间--结束时间,查询用
    */
-  private Long updateTimeEnd;
+  private Date updateTimeEnd;
 
   /**
    * 字段：is_del. 类型：VARCHAR(1). 备注：是否删除，Y：已删除，N：未删除(默认).
@@ -90,12 +91,12 @@ public class DictDataVo {
   }
 
 
-  public void setDictTypeCd(String dictTypeCd) {
-    this.dictTypeCd = dictTypeCd;
+  public void setDictDataTypeCd(String dictDataTypeCd) {
+    this.dictDataTypeCd = dictDataTypeCd;
   }
 
-  public String getDictTypeCd() {
-    return this.dictTypeCd;
+  public String getDictDataTypeCd() {
+    return this.dictDataTypeCd;
   }
 
 
@@ -117,50 +118,50 @@ public class DictDataVo {
   }
 
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 
-  public Long getCreateTime() {
+  public Date getCreateTime() {
     return this.createTime;
   }
-  public void setCreateTimeBegin(Long createTimeBegin) {
+  public void setCreateTimeBegin(Date createTimeBegin) {
     this.createTimeBegin = createTimeBegin;
   }
 
-  public Long getCreateTimeBegin() {
+  public Date getCreateTimeBegin() {
     return this.createTimeBegin;
   }
 
-  public void setCreateTimeEnd(Long createTimeEnd) {
+  public void setCreateTimeEnd(Date createTimeEnd) {
     this.createTimeEnd = createTimeEnd;
   }
 
-  public Long getCreateTimeEnd() {
+  public Date getCreateTimeEnd() {
     return this.createTimeEnd;
   }
 
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateTime() {
+  public Date getUpdateTime() {
     return this.updateTime;
   }
-  public void setUpdateTimeBegin(Long updateTimeBegin) {
+  public void setUpdateTimeBegin(Date updateTimeBegin) {
     this.updateTimeBegin = updateTimeBegin;
   }
 
-  public Long getUpdateTimeBegin() {
+  public Date getUpdateTimeBegin() {
     return this.updateTimeBegin;
   }
 
-  public void setUpdateTimeEnd(Long updateTimeEnd) {
+  public void setUpdateTimeEnd(Date updateTimeEnd) {
     this.updateTimeEnd = updateTimeEnd;
   }
 
-  public Long getUpdateTimeEnd() {
+  public Date getUpdateTimeEnd() {
     return this.updateTimeEnd;
   }
 

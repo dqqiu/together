@@ -23,6 +23,6 @@ public class DictionaryTranslator {
 
 
   public void translate(Object source) {
-
+    
   }
 }

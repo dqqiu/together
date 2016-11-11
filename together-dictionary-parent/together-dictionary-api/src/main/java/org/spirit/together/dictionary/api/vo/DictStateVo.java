@@ -2,6 +2,7 @@ package org.spirit.together.dictionary.api.vo;
 
 import java.lang.Long;
 import java.lang.String;
+import java.util.Date;
 
 /**
  *	
@@ -35,30 +36,30 @@ public class DictStateVo {
   private String updatedBy;
 
   /**
-   * 字段：create_time. 类型：BIGINT(15, 0). 备注：创建时间.
+   * 字段：create_time. 类型：DATETIME(19). 备注：创建时间.
    */
-  private Long createTime;
+  private Date createTime;
   /**
    * 备注：创建时间--开始时间,查询用
    */
-  private Long createTimeBegin;
+  private Date createTimeBegin;
   /**
    * 备注：创建时间--结束时间,查询用
    */
-  private Long createTimeEnd;
+  private Date createTimeEnd;
 
   /**
-   * 字段：update_time. 类型：BIGINT(15, 0). 备注：最后一次更新时间.
+   * 字段：update_time. 类型：DATETIME(19). 备注：最后一次更新时间.
    */
-  private Long updateTime;
+  private Date updateTime;
   /**
    * 备注：最后一次更新时间--开始时间,查询用
    */
-  private Long updateTimeBegin;
+  private Date updateTimeBegin;
   /**
    * 备注：最后一次更新时间--结束时间,查询用
    */
-  private Long updateTimeEnd;
+  private Date updateTimeEnd;
 
   /**
    * 字段：version. 类型：BIGINT(15, 0). 备注：版本号.
@@ -112,50 +113,50 @@ public class DictStateVo {
   }
 
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 
-  public Long getCreateTime() {
+  public Date getCreateTime() {
     return this.createTime;
   }
-  public void setCreateTimeBegin(Long createTimeBegin) {
+  public void setCreateTimeBegin(Date createTimeBegin) {
     this.createTimeBegin = createTimeBegin;
   }
 
-  public Long getCreateTimeBegin() {
+  public Date getCreateTimeBegin() {
     return this.createTimeBegin;
   }
 
-  public void setCreateTimeEnd(Long createTimeEnd) {
+  public void setCreateTimeEnd(Date createTimeEnd) {
     this.createTimeEnd = createTimeEnd;
   }
 
-  public Long getCreateTimeEnd() {
+  public Date getCreateTimeEnd() {
     return this.createTimeEnd;
   }
 
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateTime() {
+  public Date getUpdateTime() {
     return this.updateTime;
   }
-  public void setUpdateTimeBegin(Long updateTimeBegin) {
+  public void setUpdateTimeBegin(Date updateTimeBegin) {
     this.updateTimeBegin = updateTimeBegin;
   }
 
-  public Long getUpdateTimeBegin() {
+  public Date getUpdateTimeBegin() {
     return this.updateTimeBegin;
   }
 
-  public void setUpdateTimeEnd(Long updateTimeEnd) {
+  public void setUpdateTimeEnd(Date updateTimeEnd) {
     this.updateTimeEnd = updateTimeEnd;
   }
 
-  public Long getUpdateTimeEnd() {
+  public Date getUpdateTimeEnd() {
     return this.updateTimeEnd;
   }
 

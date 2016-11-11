@@ -194,5 +194,9 @@ public abstract class AnalyzeSourceProperties {
     return (propertyDescriptor.getPropertyType().equals(String.class))
         && (propertyDescriptor.getName().startsWith("dict") || propertyDescriptor.getName().endsWith("Cd"));
   }
+  
+  public void merge(String propertyName, Object sourceValue) {
+    
+  }
 
 }

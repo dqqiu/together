@@ -2,6 +2,7 @@ package org.spirit.together.dictionary.api.model;
 
 import java.lang.Long;
 import java.lang.String;
+import java.util.Date;
 
 /**
  * 
@@ -20,9 +21,9 @@ public class DictData {
   private String dscp;
 
   /**
-   * 字段：dict_type_cd. 类型：VARCHAR(50). 备注：字典类型CD.
+   * 字段：dict_data_type_cd. 类型：VARCHAR(50). 备注：字典类型CD.
    */
-  private String dictTypeCd;
+  private String dictDataTypeCd;
 
   /**
    * 字段：created_by. 类型：VARCHAR(50). 备注：创建人.
@@ -35,14 +36,14 @@ public class DictData {
   private String updatedBy;
 
   /**
-   * 字段：create_time. 类型：BIGINT(15, 0). 备注：创建时间.
+   * 字段：create_time. 类型：DATETIME(19). 备注：创建时间.
    */
-  private Long createTime;
+  private Date createTime;
 
   /**
-   * 字段：update_time. 类型：BIGINT(15, 0). 备注：最近一次更新时间.
+   * 字段：update_time. 类型：DATETIME(19). 备注：最近一次更新时间.
    */
-  private Long updateTime;
+  private Date updateTime;
 
   /**
    * 字段：is_del. 类型：VARCHAR(1). 备注：是否删除，Y：已删除，N：未删除(默认).
@@ -74,12 +75,12 @@ public class DictData {
   }
 
 
-  public void setDictTypeCd(String dictTypeCd) {
-    this.dictTypeCd = dictTypeCd;
+  public void setDictDataTypeCd(String dictDataTypeCd) {
+    this.dictDataTypeCd = dictDataTypeCd;
   }
 
-  public String getDictTypeCd() {
-    return this.dictTypeCd;
+  public String getDictDataTypeCd() {
+    return this.dictDataTypeCd;
   }
 
 
@@ -101,20 +102,20 @@ public class DictData {
   }
 
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 
-  public Long getCreateTime() {
+  public Date getCreateTime() {
     return this.createTime;
   }
 
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateTime() {
+  public Date getUpdateTime() {
     return this.updateTime;
   }
 

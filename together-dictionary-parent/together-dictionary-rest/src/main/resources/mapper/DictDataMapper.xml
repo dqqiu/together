@@ -8,7 +8,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<resultMap id="dictData" type="org.spirit.together.dictionary.api.model.DictData">
 		<result property="cd" column="cd" />
 		<result property="dscp" column="dscp" />
-		<result property="dictTypeCd" column="dict_type_cd" />
+		<result property="dictDataTypeCd" column="dict_data_type_cd" />
 		<result property="createdBy" column="created_by" />
 		<result property="updatedBy" column="updated_by" />
 		<result property="createTime" column="create_time" />
@@ -20,7 +20,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<resultMap id="dictDataVo" type="org.spirit.together.dictionary.api.vo.DictDataVo">
 		<result property="cd" column="cd" />
 		<result property="dscp" column="dscp" />
-		<result property="dictTypeCd" column="dict_type_cd" />
+		<result property="dictDataTypeCd" column="dict_data_type_cd" />
 		<result property="createdBy" column="created_by" />
 		<result property="updatedBy" column="updated_by" />
 		<result property="createTime" column="create_time" />
@@ -34,7 +34,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		insert into dict_data (
 			cd,
 			dscp,
-			dict_type_cd,
+			dict_data_type_cd,
 			created_by,
 			updated_by,
 			create_time,
@@ -45,7 +45,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		values (
 			#{cd},
 			#{dscp},
-			#{dictTypeCd},
+			#{dictDataTypeCd},
 			#{createdBy},
 			#{updatedBy},
 			#{createTime},
@@ -65,8 +65,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="dscp != null and dscp != ''">
 				dscp,
 			</if>
-			<if test="dictTypeCd != null and dictTypeCd != ''">
-				dict_type_cd,
+			<if test="dictDataTypeCd != null and dictDataTypeCd != ''">
+				dict_data_type_cd,
 			</if>
 			<if test="createdBy != null and createdBy != ''">
 				created_by,
@@ -94,8 +94,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="dscp != null and dscp != ''">
 				#{dscp},
 			</if>
-			<if test="dictTypeCd != null and dictTypeCd != ''">
-				#{dictTypeCd},
+			<if test="dictDataTypeCd != null and dictDataTypeCd != ''">
+				#{dictDataTypeCd},
 			</if>
 			<if test="createdBy != null and createdBy != ''">
 				#{createdBy},
@@ -121,7 +121,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<!-- 抽取数据库表中的所有列 -->
 	<sql id="columns">
 	    <![CDATA[
-		 cd, dscp, dict_type_cd, created_by, updated_by, create_time, update_time, is_del, version
+		 cd, dscp, dict_data_type_cd, created_by, updated_by, create_time, update_time, is_del, version
 	    ]]>
 	</sql>
 	
@@ -134,8 +134,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="dscp != null and dscp != ''">
 				dscp = #{dscp}
 			</if>
-			<if test="dictTypeCd != null and dictTypeCd != ''">
-				dict_type_cd = #{dictTypeCd}
+			<if test="dictDataTypeCd != null and dictDataTypeCd != ''">
+				dict_data_type_cd = #{dictDataTypeCd}
 			</if>
 			<if test="createdBy != null and createdBy != ''">
 				created_by = #{createdBy}
@@ -165,6 +165,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM dict_data 
 		<where> 
 			AND cd = #{cd}
+			AND dict_data_type_cd = #{dictDataTypeCd}
 		</where>
 		limit 1
 	</select>
@@ -178,8 +179,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="dscp != null and dscp != ''">
 				AND dscp = #{dscp}
 			</if>
-			<if test="dictTypeCd != null and dictTypeCd != ''">
-				AND dict_type_cd = #{dictTypeCd}
+			<if test="dictDataTypeCd != null and dictDataTypeCd != ''">
+				AND dict_data_type_cd = #{dictDataTypeCd}
 			</if>
 			<if test="createdBy != null and createdBy != ''">
 				AND created_by = #{createdBy}
@@ -236,6 +237,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<include refid="update_sql" />
 		<where> 
 			AND cd = #{cd}
+			AND dict_data_type_cd = #{dictDataTypeCd}
 		</where>
 	</update>
 	
@@ -245,6 +247,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		from dict_data
 		<where> 
 			AND cd = #{cd}
+			AND dict_data_type_cd = #{dictDataTypeCd}
 		</where>
 	</delete>
 	

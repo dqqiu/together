@@ -1,6 +1,5 @@
 package org.spirit.together.dictionary.translate;
 
-import org.spirit.together.dictionary.translate.analyze.AnalyzeSourceProperties;
 import org.spirit.together.dictionary.translate.analyze.support.ExplicitAnalyzeSourceProperties;
 import org.spirit.together.dictionary.translate.analyze.support.PublicAnalyzeSourceProperties;
 

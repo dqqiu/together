@@ -2,6 +2,7 @@ package org.spirit.together.dictionary.api.model;
 
 import java.lang.Long;
 import java.lang.String;
+import java.util.Date;
 
 /**
  * 
@@ -15,14 +16,14 @@ public class DictCity {
   private String cd;
 
   /**
-   * 字段：state_cd. 类型：VARCHAR(20). 备注：国家CD.
+   * 字段：dict_state_cd. 类型：VARCHAR(20). 备注：国家CD.
    */
-  private String stateCd;
+  private String dictStateCd;
 
   /**
-   * 字段：province_cd. 类型：VARCHAR(20). 备注：省份CD.
+   * 字段：dict_province_cd. 类型：VARCHAR(20). 备注：省份CD.
    */
-  private String provinceCd;
+  private String dictProvinceCd;
 
   /**
    * 字段：dscp. 类型：VARCHAR(50). 备注：城市.
@@ -45,14 +46,14 @@ public class DictCity {
   private String updatedBy;
 
   /**
-   * 字段：create_time. 类型：BIGINT(15, 0). 备注：创建时间.
+   * 字段：create_time. 类型：DATETIME(19). 备注：创建时间.
    */
-  private Long createTime;
+  private Date createTime;
 
   /**
-   * 字段：update_time. 类型：BIGINT(15, 0). 备注：最后一次更新时间.
+   * 字段：update_time. 类型：DATETIME(19). 备注：最后一次更新时间.
    */
-  private Long updateTime;
+  private Date updateTime;
 
   /**
    * 字段：version. 类型：BIGINT(15, 0). 备注：版本号.
@@ -70,21 +71,21 @@ public class DictCity {
   }
 
 
-  public void setStateCd(String stateCd) {
-    this.stateCd = stateCd;
+  public void setDictStateCd(String dictStateCd) {
+    this.dictStateCd = dictStateCd;
   }
 
-  public String getStateCd() {
-    return this.stateCd;
+  public String getDictStateCd() {
+    return this.dictStateCd;
   }
 
 
-  public void setProvinceCd(String provinceCd) {
-    this.provinceCd = provinceCd;
+  public void setDictProvinceCd(String dictProvinceCd) {
+    this.dictProvinceCd = dictProvinceCd;
   }
 
-  public String getProvinceCd() {
-    return this.provinceCd;
+  public String getDictProvinceCd() {
+    return this.dictProvinceCd;
   }
 
 
@@ -124,20 +125,20 @@ public class DictCity {
   }
 
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 
-  public Long getCreateTime() {
+  public Date getCreateTime() {
     return this.createTime;
   }
 
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateTime() {
+  public Date getUpdateTime() {
     return this.updateTime;
   }
 

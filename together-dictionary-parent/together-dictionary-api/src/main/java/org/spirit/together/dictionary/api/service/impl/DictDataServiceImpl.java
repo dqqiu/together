@@ -32,8 +32,8 @@ public class DictDataServiceImpl implements DictDataService {
   }
   
   
-  public DictData getByPrimaryKey(java.lang.String cd) {
-    return dictDataMapper.getByPrimaryKey(cd);
+  public DictData getByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd) {
+    return dictDataMapper.getByPrimaryKey(cd, dictDataTypeCd);
   }
   
   
@@ -62,8 +62,8 @@ public class DictDataServiceImpl implements DictDataService {
   }
   
   
-  public int deleteByPrimaryKey(java.lang.String cd) {
-    return dictDataMapper.deleteByPrimaryKey(cd);
+  public int deleteByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd) {
+    return dictDataMapper.deleteByPrimaryKey(cd, dictDataTypeCd);
   }
 
   

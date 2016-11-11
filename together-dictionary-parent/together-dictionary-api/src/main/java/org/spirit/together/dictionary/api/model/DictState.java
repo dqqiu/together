@@ -2,6 +2,7 @@ package org.spirit.together.dictionary.api.model;
 
 import java.lang.Long;
 import java.lang.String;
+import java.util.Date;
 
 /**
  * 
@@ -35,14 +36,14 @@ public class DictState {
   private String updatedBy;
 
   /**
-   * 字段：create_time. 类型：BIGINT(15, 0). 备注：创建时间.
+   * 字段：create_time. 类型：DATETIME(19). 备注：创建时间.
    */
-  private Long createTime;
+  private Date createTime;
 
   /**
-   * 字段：update_time. 类型：BIGINT(15, 0). 备注：最后一次更新时间.
+   * 字段：update_time. 类型：DATETIME(19). 备注：最后一次更新时间.
    */
-  private Long updateTime;
+  private Date updateTime;
 
   /**
    * 字段：version. 类型：BIGINT(15, 0). 备注：版本号.
@@ -96,20 +97,20 @@ public class DictState {
   }
 
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 
-  public Long getCreateTime() {
+  public Date getCreateTime() {
     return this.createTime;
   }
 
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
 
-  public Long getUpdateTime() {
+  public Date getUpdateTime() {
     return this.updateTime;
   }
 

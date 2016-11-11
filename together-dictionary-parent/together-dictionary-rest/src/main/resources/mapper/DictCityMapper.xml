@@ -7,8 +7,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.spirit.together.dictionary.api.mapper.DictCityMapper">
 	<resultMap id="dictCity" type="org.spirit.together.dictionary.api.model.DictCity">
 		<result property="cd" column="cd" />
-		<result property="stateCd" column="state_cd" />
-		<result property="provinceCd" column="province_cd" />
+		<result property="dictStateCd" column="dict_state_cd" />
+		<result property="dictProvinceCd" column="dict_province_cd" />
 		<result property="dscp" column="dscp" />
 		<result property="isDel" column="is_del" />
 		<result property="createdBy" column="created_by" />
@@ -20,8 +20,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	
 	<resultMap id="dictCityVo" type="org.spirit.together.dictionary.api.vo.DictCityVo">
 		<result property="cd" column="cd" />
-		<result property="stateCd" column="state_cd" />
-		<result property="provinceCd" column="province_cd" />
+		<result property="dictStateCd" column="dict_state_cd" />
+		<result property="dictProvinceCd" column="dict_province_cd" />
 		<result property="dscp" column="dscp" />
 		<result property="isDel" column="is_del" />
 		<result property="createdBy" column="created_by" />
@@ -35,8 +35,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<insert id="insert" parameterType="org.spirit.together.dictionary.api.model.DictCity">
 		insert into dict_city (
 			cd,
-			state_cd,
-			province_cd,
+			dict_state_cd,
+			dict_province_cd,
 			dscp,
 			is_del,
 			created_by,
@@ -47,8 +47,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		)
 		values (
 			#{cd},
-			#{stateCd},
-			#{provinceCd},
+			#{dictStateCd},
+			#{dictProvinceCd},
 			#{dscp},
 			#{isDel},
 			#{createdBy},
@@ -66,11 +66,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="cd != null and cd != ''">
 				cd,
 			</if>
-			<if test="stateCd != null and stateCd != ''">
-				state_cd,
+			<if test="dictStateCd != null and dictStateCd != ''">
+				dict_state_cd,
 			</if>
-			<if test="provinceCd != null and provinceCd != ''">
-				province_cd,
+			<if test="dictProvinceCd != null and dictProvinceCd != ''">
+				dict_province_cd,
 			</if>
 			<if test="dscp != null and dscp != ''">
 				dscp,
@@ -98,11 +98,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="cd != null and cd != ''">
 				#{cd},
 			</if>
-			<if test="stateCd != null and stateCd != ''">
-				#{stateCd},
+			<if test="dictStateCd != null and dictStateCd != ''">
+				#{dictStateCd},
 			</if>
-			<if test="provinceCd != null and provinceCd != ''">
-				#{provinceCd},
+			<if test="dictProvinceCd != null and dictProvinceCd != ''">
+				#{dictProvinceCd},
 			</if>
 			<if test="dscp != null and dscp != ''">
 				#{dscp},
@@ -131,7 +131,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<!-- 抽取数据库表中的所有列 -->
 	<sql id="columns">
 	    <![CDATA[
-		 cd, state_cd, province_cd, dscp, is_del, created_by, updated_by, create_time, update_time, version
+		 cd, dict_state_cd, dict_province_cd, dscp, is_del, created_by, updated_by, create_time, update_time, version
 	    ]]>
 	</sql>
 	
@@ -141,11 +141,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="cd != null and cd != ''">
 				cd = #{cd}
 			</if>
-			<if test="stateCd != null and stateCd != ''">
-				state_cd = #{stateCd}
+			<if test="dictStateCd != null and dictStateCd != ''">
+				dict_state_cd = #{dictStateCd}
 			</if>
-			<if test="provinceCd != null and provinceCd != ''">
-				province_cd = #{provinceCd}
+			<if test="dictProvinceCd != null and dictProvinceCd != ''">
+				dict_province_cd = #{dictProvinceCd}
 			</if>
 			<if test="dscp != null and dscp != ''">
 				dscp = #{dscp}
@@ -188,11 +188,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="cd != null and cd != ''">
 				AND cd = #{cd}
 			</if>
-			<if test="stateCd != null and stateCd != ''">
-				AND state_cd = #{stateCd}
+			<if test="dictStateCd != null and dictStateCd != ''">
+				AND dict_state_cd = #{dictStateCd}
 			</if>
-			<if test="provinceCd != null and provinceCd != ''">
-				AND province_cd = #{provinceCd}
+			<if test="dictProvinceCd != null and dictProvinceCd != ''">
+				AND dict_province_cd = #{dictProvinceCd}
 			</if>
 			<if test="dscp != null and dscp != ''">
 				AND dscp = #{dscp}

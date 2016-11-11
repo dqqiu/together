@@ -9,29 +9,14 @@ import java.util.Date;
  * @created by mapper-generate-1.0
  * @opensource https://www.github.com/dqqiu/mapper-generate
  */
-public class DictDistrict {
+public class DictDataType {
   /**
-   * 字段：cd. 类型：VARCHAR(20). 备注：区域CD.
+   * 字段：cd. 类型：VARCHAR(50). 备注：字典类型CD.
    */
   private String cd;
 
   /**
-   * 字段：dict_state_cd. 类型：VARCHAR(20). 备注：国家CD.
-   */
-  private String dictStateCd;
-
-  /**
-   * 字段：dict_province_cd. 类型：VARCHAR(20). 备注：省份CD.
-   */
-  private String dictProvinceCd;
-
-  /**
-   * 字段：dict_city_cd. 类型：VARCHAR(20). 备注：城市CD.
-   */
-  private String dictCityCd;
-
-  /**
-   * 字段：dscp. 类型：VARCHAR(50). 备注：区域.
+   * 字段：dscp. 类型：VARCHAR(100). 备注：字典类型描述.
    */
   private String dscp;
 
@@ -73,33 +58,6 @@ public class DictDistrict {
 
   public String getCd() {
     return this.cd;
-  }
-
-
-  public void setDictStateCd(String dictStateCd) {
-    this.dictStateCd = dictStateCd;
-  }
-
-  public String getDictStateCd() {
-    return this.dictStateCd;
-  }
-
-
-  public void setDictProvinceCd(String dictProvinceCd) {
-    this.dictProvinceCd = dictProvinceCd;
-  }
-
-  public String getDictProvinceCd() {
-    return this.dictProvinceCd;
-  }
-
-
-  public void setDictCityCd(String dictCityCd) {
-    this.dictCityCd = dictCityCd;
-  }
-
-  public String getDictCityCd() {
-    return this.dictCityCd;
   }
 
 

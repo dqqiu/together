@@ -9,26 +9,16 @@ import java.util.Date;
  * @created by mapper-generate
  * @opensource https://www.github.com/dqqiu/mapper-generate
  */
-public class DictProvinceVo {
+public class DictDataTypeVo {
   /**
-   * 字段：cd. 类型：VARCHAR(20). 备注：省份CD.
+   * 字段：cd. 类型：VARCHAR(50). 备注：字典类型CD.
    */
   private String cd;
 
   /**
-   * 字段：dict_state_cd. 类型：VARCHAR(20). 备注：国家CD.
-   */
-  private String dictStateCd;
-
-  /**
-   * 字段：dscp. 类型：VARCHAR(50). 备注：省份.
+   * 字段：dscp. 类型：VARCHAR(100). 备注：字典类型描述.
    */
   private String dscp;
-
-  /**
-   * 字段：is_del. 类型：VARCHAR(1). 备注：是否删除，Y：已删除，N：未删除(默认).
-   */
-  private String isDel;
 
   /**
    * 字段：created_by. 类型：VARCHAR(50). 备注：创建人.
@@ -54,17 +44,22 @@ public class DictProvinceVo {
   private Date createTimeEnd;
 
   /**
-   * 字段：update_time. 类型：DATETIME(19). 备注：最后一次更新时间.
+   * 字段：update_time. 类型：DATETIME(19). 备注：最近一次更新时间.
    */
   private Date updateTime;
   /**
-   * 备注：最后一次更新时间--开始时间,查询用
+   * 备注：最近一次更新时间--开始时间,查询用
    */
   private Date updateTimeBegin;
   /**
-   * 备注：最后一次更新时间--结束时间,查询用
+   * 备注：最近一次更新时间--结束时间,查询用
    */
   private Date updateTimeEnd;
+
+  /**
+   * 字段：is_del. 类型：VARCHAR(1). 备注：是否删除，Y：已删除，N：未删除(默认).
+   */
+  private String isDel;
 
   /**
    * 字段：version. 类型：BIGINT(15, 0). 备注：版本号.
@@ -82,30 +77,12 @@ public class DictProvinceVo {
   }
 
 
-  public void setDictStateCd(String dictStateCd) {
-    this.dictStateCd = dictStateCd;
-  }
-
-  public String getDictStateCd() {
-    return this.dictStateCd;
-  }
-
-
   public void setDscp(String dscp) {
     this.dscp = dscp;
   }
 
   public String getDscp() {
     return this.dscp;
-  }
-
-
-  public void setIsDel(String isDel) {
-    this.isDel = isDel;
-  }
-
-  public String getIsDel() {
-    return this.isDel;
   }
 
 
@@ -172,6 +149,15 @@ public class DictProvinceVo {
 
   public Date getUpdateTimeEnd() {
     return this.updateTimeEnd;
+  }
+
+
+  public void setIsDel(String isDel) {
+    this.isDel = isDel;
+  }
+
+  public String getIsDel() {
+    return this.isDel;
   }
 
 

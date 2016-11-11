@@ -14,7 +14,7 @@ public interface DictDataService {
   
   int insertBySelective(DictData dictData);
   
-  DictData getByPrimaryKey(java.lang.String cd);
+  DictData getByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd);
   
   List<DictData> getByCondition(DictData dictData);
   
@@ -26,7 +26,7 @@ public interface DictDataService {
   
   int updateByPrimaryKey(DictData dictData);
   
-  int deleteByPrimaryKey(java.lang.String cd);
+  int deleteByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd);
 
   int deleteByCondition(DictData dictData);
 
