@@ -1,9 +1,11 @@
-package org.spirit.framework.core.utils.http;
+package org.spirit.framework.core.http;
 
 import java.util.Map;
 
+import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 
 /**
  * @Project       : framework-boot-core
@@ -16,7 +18,7 @@ import okhttp3.Request;
  * ----------   -------------    -----------------------------------
  * qiudequan     2016年11月14日        create
  */
-public class URLHelper {
+public class HttpHelper {
   /**
    *  @Description	: qiudequan 将传递的参数和url拼接成get请求所需要的完整url
    *  @param          : @param url
@@ -59,5 +61,16 @@ public class URLHelper {
       requestBuilder.headers(headersBuilder.build());
     }
     return requestBuilder;
+  }
+  
+  public static RequestBody createRequestBody(Map<String, String> params){
+    FormBody.Builder formBodyBuilder = new FormBody.Builder();
+    if(params != null && !params.isEmpty()){
+      for (Map.Entry<String, String> entry : params.entrySet()) {
+        formBodyBuilder.add(entry.getKey(), entry.getValue());
+      }
+      return formBodyBuilder.build();
+    }
+    return formBodyBuilder.build();
   }
 }

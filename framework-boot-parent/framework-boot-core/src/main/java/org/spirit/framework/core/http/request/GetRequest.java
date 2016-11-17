@@ -1,8 +1,10 @@
-package org.spirit.framework.core.utils.http.request;
+package org.spirit.framework.core.http.request;
 
-import org.spirit.framework.core.utils.http.URLHelper;
+
+import org.spirit.framework.core.http.HttpHelper;
 
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Request.Builder;
 
 /**
@@ -23,10 +25,16 @@ public class GetRequest extends BaseRequest<GetRequest> {
   }
 
   @Override
-  public Request createRequest() {
-    Builder requestBuilder = URLHelper.createRequestFromHeaders(headers);
-    String urls = URLHelper.createUrlParams(url, params);
+  public Request createRequest(RequestBody requestBody) {
+    Builder requestBuilder = HttpHelper.createRequestFromHeaders(headers);
+    String urls = HttpHelper.createUrlParams(url, params);
     return requestBuilder.get().url(urls).build();
   }
+
+  @Override
+  public RequestBody createRequestBody() {
+    return null;
+  }
+
 
 }

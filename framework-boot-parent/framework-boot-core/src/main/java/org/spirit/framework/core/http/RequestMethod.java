@@ -1,4 +1,4 @@
-package org.spirit.framework.core.utils.http;
+package org.spirit.framework.core.http;
 
 /**
  * @Project       : framework-boot-core
