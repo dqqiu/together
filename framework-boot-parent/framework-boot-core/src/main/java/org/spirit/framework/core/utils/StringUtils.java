@@ -18,6 +18,10 @@ public class StringUtils extends org.springframework.util.StringUtils {
   private static final Logger logger = LoggerFactory.getLogger(StringUtils.class);
   private static final char UNDERLINE = '_';
   
+  public static boolean isNotEmpty(Object str) {
+    return !isEmpty(str);
+  }
+  
   /**
    *  @Description	: qiudequan 字符串拼接，适用于较短的字符串拼接
    *  @return         : String
