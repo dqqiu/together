@@ -1,6 +1,8 @@
 package org.spirit.together.dictionary.api.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.spirit.together.dictionary.api.model.DictDataType;
 import org.spirit.together.dictionary.api.vo.DictDataTypeVo;
 
@@ -14,7 +16,7 @@ public interface DictDataTypeMapper {
   
   int insertBySelective(DictDataType dictDataType);
   
-  DictDataType getByPrimaryKey(java.lang.String cd);
+  DictDataType getByPrimaryKey(@Param("cd") java.lang.String cd);
   
   List<DictDataType> getByCondition(DictDataType dictDataType);
   
@@ -26,7 +28,7 @@ public interface DictDataTypeMapper {
   
   int updateByPrimaryKey(DictDataType dictDataType);
   
-  int deleteByPrimaryKey(java.lang.String cd);
+  int deleteByPrimaryKey(@Param("cd") java.lang.String cd);
 
   int deleteByCondition(DictDataType dictDataType);
 

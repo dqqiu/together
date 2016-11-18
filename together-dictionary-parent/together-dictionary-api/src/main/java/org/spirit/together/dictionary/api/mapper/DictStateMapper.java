@@ -1,6 +1,8 @@
 package org.spirit.together.dictionary.api.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.spirit.together.dictionary.api.model.DictState;
 import org.spirit.together.dictionary.api.vo.DictStateVo;
 
@@ -14,7 +16,7 @@ public interface DictStateMapper {
   
   int insertBySelective(DictState dictState);
   
-  DictState getByPrimaryKey(java.lang.String cd);
+  DictState getByPrimaryKey(@Param("cd") java.lang.String cd);
   
   List<DictState> getByCondition(DictState dictState);
   
@@ -26,7 +28,7 @@ public interface DictStateMapper {
   
   int updateByPrimaryKey(DictState dictState);
   
-  int deleteByPrimaryKey(java.lang.String cd);
+  int deleteByPrimaryKey(@Param("cd") java.lang.String cd);
 
   int deleteByCondition(DictState dictState);
 

@@ -139,34 +139,34 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<sql id="update_sql">
 		<set>
 			<if test="cd != null and cd != ''">
-				cd = #{cd}
+				cd = #{cd},
 			</if>
 			<if test="dictStateCd != null and dictStateCd != ''">
-				dict_state_cd = #{dictStateCd}
+				dict_state_cd = #{dictStateCd},
 			</if>
 			<if test="dictProvinceCd != null and dictProvinceCd != ''">
-				dict_province_cd = #{dictProvinceCd}
+				dict_province_cd = #{dictProvinceCd},
 			</if>
 			<if test="dscp != null and dscp != ''">
-				dscp = #{dscp}
+				dscp = #{dscp},
 			</if>
 			<if test="isDel != null and isDel != ''">
-				is_del = #{isDel}
+				is_del = #{isDel},
 			</if>
 			<if test="createdBy != null and createdBy != ''">
-				created_by = #{createdBy}
+				created_by = #{createdBy},
 			</if>
 			<if test="updatedBy != null and updatedBy != ''">
-				updated_by = #{updatedBy}
+				updated_by = #{updatedBy},
 			</if>
 			<if test="createTime != null and createTime != ''">
-				create_time = #{createTime}
+				create_time = #{createTime},
 			</if>
 			<if test="updateTime != null and updateTime != ''">
-				update_time = #{updateTime}
+				update_time = #{updateTime},
 			</if>
 			<if test="version != null and version != ''">
-				version = #{version}
+				version = #{version},
 			</if>
 		</set>
 	</sql>

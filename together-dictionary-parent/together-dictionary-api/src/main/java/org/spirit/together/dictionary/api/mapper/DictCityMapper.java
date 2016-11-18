@@ -1,6 +1,8 @@
 package org.spirit.together.dictionary.api.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.spirit.together.dictionary.api.model.DictCity;
 import org.spirit.together.dictionary.api.vo.DictCityVo;
 
@@ -14,7 +16,7 @@ public interface DictCityMapper {
   
   int insertBySelective(DictCity dictCity);
   
-  DictCity getByPrimaryKey(java.lang.String cd);
+  DictCity getByPrimaryKey(@Param("cd") java.lang.String cd);
   
   List<DictCity> getByCondition(DictCity dictCity);
   
@@ -26,7 +28,7 @@ public interface DictCityMapper {
   
   int updateByPrimaryKey(DictCity dictCity);
   
-  int deleteByPrimaryKey(java.lang.String cd);
+  int deleteByPrimaryKey(@Param("cd") java.lang.String cd);
 
   int deleteByCondition(DictCity dictCity);
 

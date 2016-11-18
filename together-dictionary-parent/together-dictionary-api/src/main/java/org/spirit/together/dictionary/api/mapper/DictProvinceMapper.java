@@ -1,6 +1,8 @@
 package org.spirit.together.dictionary.api.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.spirit.together.dictionary.api.model.DictProvince;
 import org.spirit.together.dictionary.api.vo.DictProvinceVo;
 
@@ -14,7 +16,7 @@ public interface DictProvinceMapper {
   
   int insertBySelective(DictProvince dictProvince);
   
-  DictProvince getByPrimaryKey(java.lang.String cd);
+  DictProvince getByPrimaryKey(@Param("cd") java.lang.String cd);
   
   List<DictProvince> getByCondition(DictProvince dictProvince);
   
@@ -26,7 +28,7 @@ public interface DictProvinceMapper {
   
   int updateByPrimaryKey(DictProvince dictProvince);
   
-  int deleteByPrimaryKey(java.lang.String cd);
+  int deleteByPrimaryKey(@Param("cd") java.lang.String cd);
 
   int deleteByCondition(DictProvince dictProvince);
 
