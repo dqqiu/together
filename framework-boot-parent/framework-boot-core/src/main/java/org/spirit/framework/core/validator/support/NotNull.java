@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * @Project       : framework-boot-core
  * @Program Name  : org.spirit.framework.core.validator.support.NotNull.java
- * @Description   : qiudequan 类描述
+ * @Description   : qiudequan 非空校验注解
  * @Author        : qiudequan
  * @Creation Date : 2016年11月28日 下午4:55:46 
  * @ModificationHistory  

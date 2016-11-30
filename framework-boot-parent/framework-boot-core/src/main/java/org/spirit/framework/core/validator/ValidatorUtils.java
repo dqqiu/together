@@ -1,7 +1,6 @@
 package org.spirit.framework.core.validator;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -27,8 +26,11 @@ import org.spirit.framework.core.validator.support.Pattern;
  */
 public class ValidatorUtils {
   private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorUtils.class);
+  public static final String DEFAULT_GROUP = "VALIDATOR_DEFAULT_GROUP";
+  public static final String PATTERN_TYPE_ERR_MSG = "Pattern注解只支持字符串类型的字段校验";
+  public static final String JOIN_SYMBOLS = "&";
   public static void validate(Object object, String remark){
-    ValidateMessageMap<String, StringBuilder> validateMessageMap = new ValidateMessageMap<String, StringBuilder>();
+    ValidateMessageGroup<String, ValidateMessageMap<String, StringBuilder>> validateMessageGroup = new ValidateMessageGroup<>();
     try {
       Class<? extends Object> clz = object.getClass();
       Field[] fields = clz.getDeclaredFields();
@@ -42,11 +44,39 @@ public class ValidatorUtils {
             Method method = clz.getMethod(getterMethodName, null);
             Object v = method.invoke(object, null);
             if(v == null){
-              if(validateMessageMap.containsKey(fieldName)){
-                validateMessageMap.put(fieldName, validateMessageMap.get(fieldName).append(", ").append(notNull.errMsg()));
+              String[] groups = notNull.groups();
+              if(groups != null && groups.length > 0){
+                for (String groupName : groups) {
+                  if(validateMessageGroup.containsKey(groupName)){
+                    ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(groupName);
+                    if(validateMessageMap2.containsKey(fieldName)){
+                      validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(notNull.errMsg()));
+                    } else {
+                      validateMessageMap2.put(fieldName, new StringBuilder(notNull.errMsg()));
+                    }
+                    validateMessageGroup.put(groupName, validateMessageMap2);
+                  } else {
+                    ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                    messageMap.put(fieldName, new StringBuilder(notNull.errMsg()));
+                    validateMessageGroup.put(groupName, messageMap);
+                  }
+                }
               } else {
-                validateMessageMap.put(fieldName, new StringBuilder(notNull.errMsg()));
+                if(validateMessageGroup.containsKey(DEFAULT_GROUP)){
+                  ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(DEFAULT_GROUP);
+                  if(validateMessageMap2.containsKey(fieldName)){
+                    validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(notNull.errMsg()));
+                  } else {
+                    validateMessageMap2.put(fieldName, new StringBuilder(notNull.errMsg()));
+                  }
+                  validateMessageGroup.put(DEFAULT_GROUP, validateMessageMap2);
+                } else {
+                  ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                  messageMap.put(fieldName, new StringBuilder(notNull.errMsg()));
+                  validateMessageGroup.put(DEFAULT_GROUP, messageMap);
+                }
               }
+              
             }
           }
         }
@@ -62,10 +92,37 @@ public class ValidatorUtils {
               int len = String.valueOf(v).length();
               boolean flag = len >= length.min() && len <= length.max();
               if(!flag){
-                if(validateMessageMap.containsKey(fieldName)){
-                  validateMessageMap.put(fieldName, validateMessageMap.get(fieldName).append(", ").append(length.errMsg()));
+                String[] groups = length.groups();
+                if(groups != null && groups.length > 0){
+                  for (String groupName : groups) {
+                    if(validateMessageGroup.containsKey(groupName)){
+                      ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(groupName);
+                      if(validateMessageMap2.containsKey(fieldName)){
+                        validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(length.errMsg()));
+                      } else {
+                        validateMessageMap2.put(fieldName, new StringBuilder(length.errMsg()));
+                      }
+                      validateMessageGroup.put(groupName, validateMessageMap2);
+                    } else {
+                      ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                      messageMap.put(fieldName, new StringBuilder(length.errMsg()));
+                      validateMessageGroup.put(groupName, messageMap);
+                    }
+                  }
                 } else {
-                  validateMessageMap.put(fieldName, new StringBuilder(length.errMsg()));
+                  if(validateMessageGroup.containsKey(DEFAULT_GROUP)){
+                    ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(DEFAULT_GROUP);
+                    if(validateMessageMap2.containsKey(fieldName)){
+                      validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(length.errMsg()));
+                    } else {
+                      validateMessageMap2.put(fieldName, new StringBuilder(length.errMsg()));
+                    }
+                    validateMessageGroup.put(DEFAULT_GROUP, validateMessageMap2);
+                  } else {
+                    ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                    messageMap.put(fieldName, new StringBuilder(length.errMsg()));
+                    validateMessageGroup.put(DEFAULT_GROUP, messageMap);
+                  }
                 }
               }
             }
@@ -84,32 +141,87 @@ public class ValidatorUtils {
               java.util.regex.Pattern pattern2 = java.util.regex.Pattern.compile(regex);
               boolean flag = pattern2.matcher(String.valueOf(v)).matches();
               if(!flag){
-                if(validateMessageMap.containsKey(fieldName)){
-                  validateMessageMap.put(fieldName, validateMessageMap.get(fieldName).append(", ").append(pattern.errMsg()));
+                String[] groups = pattern.groups();
+                if(groups != null && groups.length > 0){
+                  for (String groupName : groups) {
+                    if(validateMessageGroup.containsKey(groupName)){
+                      ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(groupName);
+                      if(validateMessageMap2.containsKey(fieldName)){
+                        validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(pattern.errMsg()));
+                      } else {
+                        validateMessageMap2.put(fieldName, new StringBuilder(pattern.errMsg()));
+                      }
+                      validateMessageGroup.put(groupName, validateMessageMap2);
+                    } else {
+                      ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                      messageMap.put(fieldName, new StringBuilder(pattern.errMsg()));
+                      validateMessageGroup.put(groupName, messageMap);
+                    }
+                  }
                 } else {
-                  validateMessageMap.put(fieldName, new StringBuilder(pattern.errMsg()));
+                  if(validateMessageGroup.containsKey(DEFAULT_GROUP)){
+                    ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(DEFAULT_GROUP);
+                    if(validateMessageMap2.containsKey(fieldName)){
+                      validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(pattern.errMsg()));
+                    } else {
+                      validateMessageMap2.put(fieldName, new StringBuilder(pattern.errMsg()));
+                    }
+                    validateMessageGroup.put(DEFAULT_GROUP, validateMessageMap2);
+                  } else {
+                    ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                    messageMap.put(fieldName, new StringBuilder(pattern.errMsg()));
+                    validateMessageGroup.put(DEFAULT_GROUP, messageMap);
+                  }
                 }
               }
             }
           } else {
-            if(validateMessageMap.containsKey(fieldName)){
-              validateMessageMap.put(fieldName, validateMessageMap.get(fieldName).append(", ").append("Pattern注解只支持字符串类型的字段校验"));
+            Pattern pattern = field.getAnnotation(Pattern.class);
+            String[] groups = pattern.groups();
+            if(groups != null && groups.length > 0){
+              for (String groupName : groups) {
+                if(validateMessageGroup.containsKey(groupName)){
+                  ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(groupName);
+                  if(validateMessageMap2.containsKey(fieldName)){
+                    validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(PATTERN_TYPE_ERR_MSG));
+                  } else {
+                    validateMessageMap2.put(fieldName, new StringBuilder(PATTERN_TYPE_ERR_MSG));
+                  }
+                  validateMessageGroup.put(groupName, validateMessageMap2);
+                } else {
+                  ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                  messageMap.put(fieldName, new StringBuilder(PATTERN_TYPE_ERR_MSG));
+                  validateMessageGroup.put(groupName, messageMap);
+                }
+              }
             } else {
-              validateMessageMap.put(fieldName, new StringBuilder("Pattern注解只支持字符串类型的字段校验"));
+              if(validateMessageGroup.containsKey(DEFAULT_GROUP)){
+                ValidateMessageMap<String, StringBuilder> validateMessageMap2 = validateMessageGroup.get(DEFAULT_GROUP);
+                if(validateMessageMap2.containsKey(fieldName)){
+                  validateMessageMap2.put(fieldName, validateMessageMap2.get(fieldName).append(JOIN_SYMBOLS).append(PATTERN_TYPE_ERR_MSG));
+                } else {
+                  validateMessageMap2.put(fieldName, new StringBuilder(PATTERN_TYPE_ERR_MSG));
+                }
+                validateMessageGroup.put(DEFAULT_GROUP, validateMessageMap2);
+              } else {
+                ValidateMessageMap<String, StringBuilder> messageMap = new ValidateMessageMap<String, StringBuilder>();
+                messageMap.put(fieldName, new StringBuilder(PATTERN_TYPE_ERR_MSG));
+                validateMessageGroup.put(DEFAULT_GROUP, messageMap);
+              }
             }
           }
         }
       }
 
-      if(MapUtils.isNotEmpty(validateMessageMap)){
+      if(MapUtils.isNotEmpty(validateMessageGroup)){
         if(LOGGER.isDebugEnabled()){
-          LOGGER.error("validator not passed ---> {}", validateMessageMap.toString());
+          LOGGER.error("validator not passed ---> {}", validateMessageGroup.toString());
         }
-        throw new ValidatorException("validator not passed ---> " + validateMessageMap.toString());
+        throw new ValidatorException("validator not passed ---> " + validateMessageGroup.toString());
       }
     } catch (NoSuchMethodException | SecurityException | IllegalAccessException
         | IllegalArgumentException | InvocationTargetException e) {
-      throw new ValidatorException(validateMessageMap.toString(), e);
+      throw new ValidatorException(validateMessageGroup.toString(), e);
     }
   }
 
@@ -147,4 +259,5 @@ public class ValidatorUtils {
     }
     return false;
   }
+  
 }

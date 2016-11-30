@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * @Project       : framework-boot-core
  * @Program Name  : org.spirit.framework.core.validator.support.Length.java
- * @Description   : qiudequan 类描述
+ * @Description   : qiudequan 长度校验注解
  * @Author        : qiudequan
  * @Creation Date : 2016年11月28日 下午4:58:51 
  * @ModificationHistory  

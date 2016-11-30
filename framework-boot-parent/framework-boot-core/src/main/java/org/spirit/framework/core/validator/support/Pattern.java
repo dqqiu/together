@@ -6,10 +6,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import javax.validation.groups.Default;
+
 /**
  * @Project       : framework-boot-core
  * @Program Name  : org.spirit.framework.core.validator.support.Pattern.java
- * @Description   : qiudequan 类描述
+ * @Description   : qiudequan 正则校验注解
  * @Author        : qiudequan
  * @Creation Date : 2016年11月28日 下午5:01:24 
  * @ModificationHistory  
@@ -39,6 +41,27 @@ public @interface Pattern {
    */
   String errMsg() default "{org.spirit.framework.core.validator.support.Pattern.errMsg}";
   
+  /**
+   *  @Description	: qiudequan 分组
+   *  @param          : @return
+   *  @return 		: String[]
+   *  @Creation Date  : 2016年11月30日 下午12:28:36 
+   *  @Author         : qiudequan
+   */
+  String[] groups() default { };
+  
+  /**
+   * @Project       : framework-boot-core
+   * @Program Name  : org.spirit.framework.core.validator.support.Pattern.java
+   * @Description   : qiudequan 常见正则表达式枚举
+   * @Author        : qiudequan
+   * @Creation Date : 2016年11月30日 上午9:47:43 
+   * @ModificationHistory  
+   * Who          When             What 
+   * ----------   -------------    -----------------------------------
+   * qiudequan     2016年11月30日        create
+   */
+  @SuppressWarnings("unused")
   public static enum Regex {
     EMAIL("^[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)+$"),               // 邮箱
     IP("(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)"),                            // IP
