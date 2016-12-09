@@ -40,6 +40,8 @@ local.properties
 
 # Java annotation processor (APT)
 .factorypath
+*.class
+.apt_generated/
 
 # PDT-specific (PHP Development Tools)
 .buildpath
@@ -75,10 +77,3 @@ Thumbs.db
 
 *.original
 ~$*
-.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.fdt
-.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.fdx
-.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.frq
-.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.nrm
-.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.prx
-.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/_0.tis
-.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/write.lock
