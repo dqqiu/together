@@ -11,27 +11,41 @@ package org.spirit.together.dictionary.translate.meta;
  * ----------   -------------    -----------------------------------
  * qiudequan     2016年11月10日        create
  */
-public class DictionaryMeta {
-  private String name;
-  private String key;
-  private Object value;
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-  public String getKey() {
-    return key;
-  }
-  public void setKey(String key) {
-    this.key = key;
-  }
-  public Object getValue() {
-    return value;
-  }
-  public void setValue(Object value) {
-    this.value = value;
-  }
+public interface DictionaryMeta {
   
+  /**
+   *  @Description	: qiudequan 获取字典Code
+   *  @param          : @return
+   *  @return         : String
+   *  @Creation Date  : 2016年12月11日 上午11:43:07 
+   *  @Author         : qiudequan
+   */
+  String getCd();
+  
+  /**
+   *  @Description	: qiudequan 获取欲翻译字段的值
+   *  @param          : @return
+   *  @return         : Object
+   *  @Creation Date  : 2016年12月11日 下午8:11:39 
+   *  @Author         : qiudequan
+   */
+  Object getCdValue();
+  
+ /**
+  *  @Description	: qiudequan 获取释义
+  *  @param          : @return
+  *  @return         : String
+  *  @Creation Date  : 2016年12月11日 上午11:42:49 
+  *  @Author         : qiudequan
+  */
+  Object getDscp();
+  
+  /**
+   *  @Description	: qiudequan 获取唯一标识
+   *  @param          : @return
+   *  @return         : String
+   *  @Creation Date  : 2016年12月11日 上午11:42:35 
+   *  @Author         : qiudequan
+   */
+  String getKey();
 }

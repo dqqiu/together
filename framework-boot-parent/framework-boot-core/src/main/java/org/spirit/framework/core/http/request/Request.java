@@ -1,5 +1,6 @@
 package org.spirit.framework.core.http.request;
 
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
@@ -65,7 +66,7 @@ public interface Request {
    *  @Creation Date  : 2016年11月16日 上午10:06:10 
    *  @Author         : qiudequan
    */
-  public Request addParam(Map<String, String> params);
+  public Request addParam(Map<String, List<String>> params);
   
   /**
    *  @Description	: qiudequan 设置请求体

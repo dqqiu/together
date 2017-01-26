@@ -7,6 +7,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spirit.framework.core.utils.StringUtils;
+import org.spirit.together.dictionary.translate.registry.DictionaryCategory;
+import org.spirit.together.dictionary.translate.registry.DictionaryRemotingResourceMapping;
+import org.spirit.together.dictionary.translate.registry.support.DictionaryResourcesRegistry;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
@@ -23,7 +26,7 @@ import org.springframework.beans.BeanWrapperImpl;
  */
 public abstract class AnalyzeSourceProperties {
   
-  private static final Logger logger = LoggerFactory.getLogger(AnalyzeSourceProperties.class);
+  private final Logger logger = LoggerFactory.getLogger(getClass());
   
   /**
    *  @Description	: qiudequan 执行解析，强制子类实现，方便对不同类型的数据字典进行解析
@@ -33,15 +36,18 @@ public abstract class AnalyzeSourceProperties {
    *  @Creation Date  : 2016年11月11日 上午10:24:47 
    *  @Author         : qiudequan
    */
-  public abstract void handlerAnalyze(BeanWrapper source, String propertyName);
+  public abstract void handlerAnalyze(BeanWrapper source, String propertyName, Map<String, Map<String, DictionaryCategory>> categoryMap);
   
-  public void analyze(Object source) {
+  public void analyze(Object source, Map<String, Map<String, DictionaryCategory>> categoryMap) {
     if(source == null) {
+      if(logger.isDebugEnabled()) {
+        logger.warn("The source is empty and the operation is terminated!");
+      }
       return;
     }
 
     // 处理复杂类型
-    handlerComplexType(source);
+    handlerComplexType(source, categoryMap);
   }
 
   /**
@@ -51,29 +57,29 @@ public abstract class AnalyzeSourceProperties {
    *  @Creation Date  : 2016年11月10日 下午5:17:51 
    *  @Author         : qiudequan
    */
-  private void handlerComplexType(Object source) {
+  private void handlerComplexType(Object source, Map<String, Map<String, DictionaryCategory>> categoryMap) {
     if(source == null) {
       return;
     }
     
     // 自定义类型：Together中的类
     if(isTogetherType(source.getClass())) {
-      analyzeTogetherType(source);
+      analyzeTogetherType(source, categoryMap);
     }
     
     // 数组类型
     if(source.getClass().isArray()) {
-      analyzeComplexTypeForArray((Object[]) source);
+      analyzeComplexTypeForArray((Object[]) source, categoryMap);
     }
     
     // 集合类型
     if(source instanceof Collection<?>) {
-      analyzeComplexTypeForCollection((Collection<?>)source);
+      analyzeComplexTypeForCollection((Collection<?>)source, categoryMap);
     }
     
     // Map集合类型
     if(source instanceof Map<?, ?>) {
-      analyzeComplexTypeForMap((Map<?, ?>) source);
+      analyzeComplexTypeForMap((Map<?, ?>) source, categoryMap);
     }
   }
 
@@ -84,7 +90,7 @@ public abstract class AnalyzeSourceProperties {
    *  @Creation Date  : 2016年11月10日 下午5:18:01 
    *  @Author         : qiudequan
    */
-  private void analyzeTogetherType(Object source) {
+  private void analyzeTogetherType(Object source, Map<String, Map<String, DictionaryCategory>> categoryMap) {
     BeanWrapper beanWrapper = new BeanWrapperImpl();
     // 获取类中属性描述器，其中包含属性名，属性值等信息
     PropertyDescriptor[] propertyDescriptors = beanWrapper.getPropertyDescriptors();
@@ -103,7 +109,7 @@ public abstract class AnalyzeSourceProperties {
       }
       
       // 由于属性可能为任意类型，所以需要再次判断其类型--->递归handlerComplexType
-      handlerComplexType(value);
+      handlerComplexType(value, categoryMap);
       
       // 直接忽略无用字段(即无需翻译的字段). 注：此处Dscp结尾的字段是承载相应翻译结果的字段，所以需要忽略
       if(!isDictionaryProperty(property) || propertyName.endsWith("Dscp")) {
@@ -111,7 +117,7 @@ public abstract class AnalyzeSourceProperties {
       }
       
       // 解析字段
-      handlerAnalyze(beanWrapper, propertyName);
+      handlerAnalyze(beanWrapper, propertyName, categoryMap);
     }
   }
   
@@ -122,13 +128,13 @@ public abstract class AnalyzeSourceProperties {
    *  @Creation Date  : 2016年11月10日 下午5:18:14 
    *  @Author         : qiudequan
    */
-  private void analyzeComplexTypeForCollection(Collection<?> source) {
+  private void analyzeComplexTypeForCollection(Collection<?> source, Map<String, Map<String, DictionaryCategory>> categoryMap) {
     if(logger.isDebugEnabled()) {
       logger.debug("The field that needs to be translated is an collection type");
     }
     
     for (Object value : source) {
-      handlerComplexType(value);
+      handlerComplexType(value, categoryMap);
     }
   }
   
@@ -139,13 +145,13 @@ public abstract class AnalyzeSourceProperties {
    *  @Creation Date  : 2016年11月10日 下午5:18:32 
    *  @Author         : qiudequan
    */
-  private void analyzeComplexTypeForMap(Map<?, ?> source) {
+  private void analyzeComplexTypeForMap(Map<?, ?> source, Map<String, Map<String, DictionaryCategory>> categoryMap) {
     if(logger.isDebugEnabled()) {
       logger.debug("The field that needs to be translated is an map type");
     }
     
     for(Object value : source.values()) {
-      handlerComplexType(value);
+      handlerComplexType(value, categoryMap);
     }
   }
   
@@ -156,13 +162,13 @@ public abstract class AnalyzeSourceProperties {
    *  @Creation Date  : 2016年11月10日 下午5:18:42 
    *  @Author         : qiudequan
    */
-  private void analyzeComplexTypeForArray(Object[] source) {
+  private void analyzeComplexTypeForArray(Object[] source, Map<String, Map<String, DictionaryCategory>> categoryMap) {
     if(logger.isDebugEnabled()) {
       logger.debug("The field that needs to be translated is an array type");
     }
     
     for (Object value : source) {
-      handlerComplexType(value);
+      handlerComplexType(value, categoryMap);
     }
   }
 
@@ -195,8 +201,17 @@ public abstract class AnalyzeSourceProperties {
         && (propertyDescriptor.getName().startsWith("dict") || propertyDescriptor.getName().endsWith("Cd"));
   }
   
-  public void merge(String propertyName, Object sourceValue) {
-    
+  /**
+   *  @Description	: qiudequan 是否为具有明确释义的数据字典
+   *  @param          : @param name
+   *  @param          : @return
+   *  @return         : boolean
+   *  @Creation Date  : 2016年12月11日 下午5:03:44 
+   *  @Author         : qiudequan
+   */
+  protected boolean isExplicit(String name) {
+    DictionaryRemotingResourceMapping remotingResourceMapping = DictionaryResourcesRegistry.EXPLICIT.mappings.get(name);
+    return remotingResourceMapping != null;
   }
-
+  
 }

@@ -4,12 +4,14 @@ import java.lang.Long;
 import java.lang.String;
 import java.util.Date;
 
+import org.spirit.together.dictionary.api.model.DictBaseModel;
+
 /**
  *	
  * @created by mapper-generate
  * @opensource https://www.github.com/dqqiu/mapper-generate
  */
-public class DictStateVo {
+public class DictStateVo implements DictBaseModel {
   /**
    * 字段：cd. 类型：VARCHAR(20). 备注：国家CD.
    */

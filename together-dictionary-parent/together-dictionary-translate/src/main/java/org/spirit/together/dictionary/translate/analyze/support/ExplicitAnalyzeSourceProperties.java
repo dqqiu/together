@@ -1,6 +1,9 @@
 package org.spirit.together.dictionary.translate.analyze.support;
 
+import java.util.Map;
+
 import org.spirit.together.dictionary.translate.analyze.AnalyzeSourceProperties;
+import org.spirit.together.dictionary.translate.registry.DictionaryCategory;
 import org.springframework.beans.BeanWrapper;
 
 /**
@@ -17,7 +20,8 @@ import org.springframework.beans.BeanWrapper;
 public class ExplicitAnalyzeSourceProperties extends AnalyzeSourceProperties {
 
   @Override
-  public void handlerAnalyze(BeanWrapper source, String propertyName) {
+  public void handlerAnalyze(BeanWrapper source, String propertyName,
+      Map<String, Map<String, DictionaryCategory>> categoryMap) {
     
   }
 

@@ -11,37 +11,59 @@ package org.spirit.together.dictionary.translate.meta;
  * ----------   -------------    -----------------------------------
  * qiudequan     2016年11月11日        create
  */
-public class DictionaryTranslateRequestMeta {
-  private String code;
-  /** 存储翻译来源值，即翻译前的值 */
-  private Object sourceValue;
-  /** 存储需要翻译的字段的释义字段名称,即翻译后的值的存储地 */
-  private String cdDscpName;
-  /** 翻译后的值 */
-  private Object cdDscp;
-  public String getCode() {
-    return code;
+public class DictionaryTranslateRequestMeta implements DictionaryMeta {
+
+  public DictionaryTranslateRequestMeta() {}
+  
+  public DictionaryTranslateRequestMeta(String cd, Object cdValue) {
+    this.cd = cd;
+    this.cdValue = cdValue;
+    this.cdDscpName = this.cd + "Dscp";
   }
-  public void setCode(String code) {
-    this.code = code;
+  
+  /** 被翻译字段code */
+  protected String cd;
+  
+  /** 被翻译字段的值 */
+  protected Object cdValue;
+  
+  /** 被翻译字段对应的释义字段名 */
+  protected String cdDscpName;
+  
+  /** 被翻译字段翻译后的释义 */
+  protected Object dscp;
+  
+  /** 字典唯一值 */
+  protected String key;
+  
+  public String getCd() {
+    return cd;
   }
-  public Object getSourceValue() {
-    return sourceValue;
+  public void setCd(String cd) {
+    this.cd = cd;
   }
-  public void setSourceValue(Object sourceValue) {
-    this.sourceValue = sourceValue;
+  public Object getCdValue() {
+    return cdValue;
+  }
+  public void setCdValue(Object cdValue) {
+    this.cdValue = cdValue;
   }
   public String getCdDscpName() {
     return cdDscpName;
   }
   public void setCdDscpName(String cdDscpName) {
-    this.cdDscpName = cdDscpName;
+    this.cdDscpName = this.cd + "Dscp";
   }
-  public Object getCdDscp() {
-    return cdDscp;
+  public Object getDscp() {
+    return dscp;
   }
-  public void setCdDscp(Object cdDscp) {
-    this.cdDscp = cdDscp;
+  public void setDscp(Object dscp) {
+    this.dscp = dscp;
   }
-  
+  public String getKey() {
+    return this.cd + this.cdValue;
+  }
+  public void setKey(String key) {
+    this.key = key;
+  }
 }

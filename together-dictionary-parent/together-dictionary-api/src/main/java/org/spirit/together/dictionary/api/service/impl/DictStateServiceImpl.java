@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import org.spirit.together.dictionary.api.model.DictState;
 import org.spirit.together.dictionary.api.vo.DictStateVo;
+import org.spirit.framework.core.utils.BeanUtils;
 import org.spirit.together.dictionary.api.mapper.DictStateMapper;
 import org.spirit.together.dictionary.api.service.DictStateService;
 
@@ -32,8 +33,11 @@ public class DictStateServiceImpl implements DictStateService {
   }
   
   
-  public DictState getByPrimaryKey(java.lang.String cd) {
-    return dictStateMapper.getByPrimaryKey(cd);
+  public DictStateVo getByPrimaryKey(java.lang.String cd) {
+    DictState state = dictStateMapper.getByPrimaryKey(cd);
+    DictStateVo dictStateVo = new DictStateVo();
+    BeanUtils.copy(state, dictStateVo);
+    return dictStateVo;
   }
   
   

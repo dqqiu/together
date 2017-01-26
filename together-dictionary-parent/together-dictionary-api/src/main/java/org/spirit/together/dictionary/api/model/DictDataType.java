@@ -9,7 +9,7 @@ import java.util.Date;
  * @created by mapper-generate-1.0
  * @opensource https://www.github.com/dqqiu/mapper-generate
  */
-public class DictDataType {
+public class DictDataType implements DictBaseModel {
   /**
    * 字段：cd. 类型：VARCHAR(50). 备注：字典类型CD.
    */

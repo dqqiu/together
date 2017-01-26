@@ -19,9 +19,9 @@ import java.util.Map;
  * qiudequan     2016年11月29日        create
  */
 public class DateUtils {
-  private static final String DATE = "yyyy-MM-dd";
-  private static final String DATE_HH_MM = "yyyy-MM-dd HH:mm";
-  private static final String DATE_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+  public static final String DATE = "yyyy-MM-dd";
+  public static final String DATE_HH_MM = "yyyy-MM-dd HH:mm";
+  public static final String DATE_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
   
   private static Map<String, DateFormat> dateFormats = new HashMap<>();
   

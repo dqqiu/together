@@ -15,9 +15,9 @@ db:
   mysql:
     url: jdbc:mysql://localhost:3306/dictionary?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&failOverReadOnly=false
     user: root
-    pass: root
+    pass: 123456
   redis:
-    host: 127.0.01
+    host: 127.0.0.1
     port: 6379
     pass: qiu842276463
     curDb: 0
@@ -47,7 +47,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat,wall,slf4j
-    maxActiv: 20
+    maxActive: 20
     initialSize: 1
     maxWait: 60000
     minIdle: 1

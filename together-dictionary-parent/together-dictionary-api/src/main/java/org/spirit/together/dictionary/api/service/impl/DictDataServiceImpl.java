@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.util.ObjectUtils;
 import org.spirit.together.dictionary.api.model.DictData;
 import org.spirit.together.dictionary.api.vo.DictDataVo;
+import org.spirit.framework.core.utils.BeanUtils;
 import org.spirit.together.dictionary.api.mapper.DictDataMapper;
 import org.spirit.together.dictionary.api.service.DictDataService;
 
@@ -31,11 +32,15 @@ public class DictDataServiceImpl implements DictDataService {
     return dictDataMapper.insertBySelective(dictData);
   }
   
-  
-  public DictData getByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd) {
-    return dictDataMapper.getByPrimaryKey(cd, dictDataTypeCd);
+  public DictDataVo getByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd) {
+    DictData dictData = dictDataMapper.getByPrimaryKey(cd, dictDataTypeCd);
+    if(ObjectUtils.isEmpty(dictData)) {
+      return null;
+    }
+    DictDataVo dictDataVo = new DictDataVo();
+    BeanUtils.copy(dictData, dictDataVo);
+    return dictDataVo;
   }
-  
   
   public List<DictData> getByCondition(DictData dictData) {
     return dictDataMapper.getByCondition(dictData);

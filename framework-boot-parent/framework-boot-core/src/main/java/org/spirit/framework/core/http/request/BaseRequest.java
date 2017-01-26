@@ -1,9 +1,13 @@
 package org.spirit.framework.core.http.request;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.util.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spirit.framework.core.http.OkHttpUtils;
@@ -31,7 +35,7 @@ public abstract class BaseRequest<T extends Request> implements Request {
   
   protected String url;
   
-  protected Map<String, String> params;
+  protected Map<String, List<String>> params;
   
   protected Map<String, String> headers;
   
@@ -39,7 +43,7 @@ public abstract class BaseRequest<T extends Request> implements Request {
   
   public BaseRequest(String url) {
     this.url = url;
-    this.params = new HashMap<String, String>();
+    this.params = new HashMap<String, List<String>>();
     this.headers = new HashMap<String, String>();
   }
 
@@ -62,7 +66,15 @@ public abstract class BaseRequest<T extends Request> implements Request {
   public abstract okhttp3.RequestBody createRequestBody();
 
   public T addParam(String key, String value) {
-    this.params.put(key, value);
+    putToMap(key, value);
+    return (T) this;
+  }
+  
+  public T addParam(String key, List<String> values) {
+    if(StringUtils.isEmpty(key) || CollectionUtils.isEmpty(values)) {
+      return (T) this;
+    }
+    putParams(key, values);
     return (T) this;
   }
 
@@ -81,18 +93,35 @@ public abstract class BaseRequest<T extends Request> implements Request {
     return (T) this;
   }
 
-  public T addParam(Map<String, String> params) {
+  public T addParam(Map<String, List<String>> params) {
     if(params != null && !params.isEmpty()){
       this.params.putAll(params);
     }
     return (T) this;
   }
   
-  
-  
   public T setRequestBody(RequestBody requestBody) {
     this.requestBody = requestBody;
     return (T) this;
+  }
+  
+  private void putParams(String key, List<String> values) {
+    if (key != null && values != null && !values.isEmpty()) {
+      for (String value : values) {
+        putToMap(key, value);
+      }
+    }
+  }
+  
+  private void putToMap(String key, String value) {
+    if (key != null && value != null) {
+      List<String> urlValues = params.get(key);
+      if (urlValues == null) {
+        urlValues = new ArrayList<>();
+        params.put(key, urlValues);
+      }
+      urlValues.add(value);
+    }
   }
 
   /**

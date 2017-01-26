@@ -8,7 +8,7 @@ import java.lang.String;
  * @created by mapper-generate-1.0
  * @opensource https://www.github.com/dqqiu/mapper-generate
  */
-public class DictType {
+public class DictType implements DictBaseModel {
   /**
    * 字段：cd. 类型：VARCHAR(50). 备注：字典类型CD.
    */

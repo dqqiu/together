@@ -4,3 +4,12 @@ together:
     path: security
     port: 8082
     version: v1
+  external:
+    dictionary:
+      port: 8081
+      server: 127.0.0.1
+      version: v1
+      name: dictionary
+  api:
+    dictionary:
+      path: http://${together.external.dictionary.server}:{together.external.dictionary.port}/${together.external.dictionary.version}/${together.external.dictionary.name}

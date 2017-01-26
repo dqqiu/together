@@ -14,7 +14,7 @@ public interface DictDataService {
   
   int insertBySelective(DictData dictData);
   
-  DictData getByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd);
+  DictDataVo getByPrimaryKey(java.lang.String cd,java.lang.String dictDataTypeCd);
   
   List<DictData> getByCondition(DictData dictData);
   
